@@ -14,7 +14,7 @@ export default {
     return {
       vueTest: 'hello world',
       crocus: 'www.crocus.co.kr',
-      branch2: 'now branch is branch3'
+      branch3: 'now branch is branch3'
     }
   }
 }

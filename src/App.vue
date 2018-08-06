@@ -4,6 +4,7 @@
     <div> {{ crocus }} </div>
     <div> {{ branch2 }} </div>
     <div> {{ branch3 }} </div>
+    <div v-if="rebase == 2"> this is rebase2 </div>
   </div>
 </template>
 
@@ -15,8 +16,9 @@ export default {
     return {
       vueTest: 'hello world',
       crocus: 'www.crocus.co.kr',
-      branch2: 'This is branch2'
-      branch3: 'now branch is branch3'
+      branch2: 'This is branch2',
+      branch3: 'now branch is branch3',
+      rebase: 2
     }
   }
 }

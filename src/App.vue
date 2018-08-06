@@ -1,13 +1,20 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div> {{ vueTest }} </div>
+    <div> {{ crocus }} </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+
+  data () {
+    return {
+      vueTest: 'hello world',
+      crocus: 'www.crocus.co.kr'
+    }
+  }
 }
 </script>
 

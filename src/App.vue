@@ -2,6 +2,7 @@
   <div id="app">
     <div> {{ vueTest }} </div>
     <div> {{ crocus }} </div>
+    <div> {{ branch3 }} </div>
   </div>
 </template>
 
@@ -12,7 +13,8 @@ export default {
   data () {
     return {
       vueTest: 'hello world',
-      crocus: 'www.crocus.co.kr'
+      crocus: 'www.crocus.co.kr',
+      branch2: 'now branch is branch3'
     }
   }
 }

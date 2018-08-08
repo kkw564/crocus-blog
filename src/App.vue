@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       isMain: false,
-      crocus: 'http://testmyblog.tistory.com/'
+      crocus: 'http://www.crocus.co.kr'
     }
   },
   mounted: function () {

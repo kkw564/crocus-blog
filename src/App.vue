@@ -21,7 +21,9 @@ export default {
   data () {
     return {
       isMain: false,
-      crocus: 'http://testmyblog.tistory.com/'
+      crocus: 'http://www.crocus.co.kr',
+      a:'',
+      b:''
     }
   },
   mounted: function () {
@@ -39,6 +41,15 @@ export default {
   methods: {
     goBlog: function () {
       this.isMain = true
+      this.mixinTest()
+    },
+    mixinTest: function() {
+      this.echoMixin()
+      this.echoMixin("bye")
+      console.log(this.a = this.getCurrentTime())
+      for(var i = 0 ; i < 2000000000; i ++){}
+      console.log(this.b = this.getCurrentTime())
+      console.log((this.b.getTime() - this.a.getTime()) / 1000)
     }
   }
 }

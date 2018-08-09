@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- particles.js container -->
     <div id="mainpage" v-show="!isMain" >
       <div id="particles-js" v-show="!isMain" >
           <div class='console-container' v-show="!isMain" @click="goBlog">
@@ -22,14 +21,20 @@ export default {
     return {
       isMain: false,
       crocus: 'http://www.crocus.co.kr',
-      a:'',
-      b:''
+      a: '',
+      b: ''
     }
+  },
+  created: function () {
+    this.$store.commit('crocus/setConnectTime')
+    console.log('Welcome to Crocus')
+    let connectTime = this.$store.getters['crocus/getConnectTime']
+    console.log('Your connect time is %s', connectTime)
   },
   mounted: function () {
     this.isMain = false
     particlesJS.load('particles-js', '../static/json/particlesjs-config.json', function () {
-      console.log('callback - particles.js config loaded')
+
     })
     consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])
     // if (document.location.href === this.crocus) {
@@ -38,16 +43,17 @@ export default {
     //   this.isMain = true
     // }
   },
+
   methods: {
     goBlog: function () {
       this.isMain = true
-      this.mixinTest()
+      // this.mixinTest()
     },
-    mixinTest: function() {
+    mixinTest: function () {
       this.echoMixin()
-      this.echoMixin("bye")
+      this.echoMixin('bye')
       console.log(this.a = this.getCurrentTime())
-      for(var i = 0 ; i < 2000000000; i ++){}
+      for (var i = 0; i < 2000000000; i++) {}
       console.log(this.b = this.getCurrentTime())
       console.log((this.b.getTime() - this.a.getTime()) / 1000)
     }

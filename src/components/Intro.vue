@@ -67,7 +67,8 @@ export default {
       background-position: 50% 50%;
   }
   .console-container{
-      font-size: 35px;
+      font-family: 'Courgette', cursive;
+      font-size: 45px;
       color:white;
       user-select: none;
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)

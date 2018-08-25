@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    
+    <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+    <!-- stats.js lib --> 
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+  </head>
+  <body style="margin: 0px;">    
+    <div id="mainPage">
+      <template v-if="isMain">
+        <div id="particles-js">
+            <div class='console-container' @click="goBlog">
+              <span id='text'></span>
+              <div class='console-underscore' id='console'>_</div>
+            </div>
+        </div>
+      </template>
+    </div>
+  </div>
+    <script> 
+      function consoleText (words, id, colors) {
+        if (colors === undefined) colors = ['#fff']
+        var visible = true
+        var con = document.getElementById('console')
+        var letterCount = 1
+        var x = 1
+        var waiting = false
+        var target = document.getElementById(id)
+        target.setAttribute('style', 'color:' + colors[0])
+        window.setInterval(function () {
+          if (letterCount === 0 && waiting === false) {
+            waiting = true
+            target.innerHTML = words[0].substring(0, letterCount)
+            window.setTimeout(function () {
+              var usedColor = colors.shift()
+              colors.push(usedColor)
+              var usedWord = words.shift()
+              words.push(usedWord)
+              x = 1
+              target.setAttribute('style', 'color:' + colors[0])
+              letterCount += x
+              waiting = false
+            }, 1000)
+          } else if (letterCount === words[0].length + 1 && waiting === false) {
+            waiting = true
+            window.setTimeout(function () {
+              x = -1
+              letterCount += x
+              waiting = false
+            }, 1000)
+          } else if (waiting === false) {
+            target.innerHTML = words[0].substring(0, letterCount)
+            letterCount += x
+          }
+        }, 120)
+        window.setInterval(function () {
+          if (visible === true) {
+            con.className = 'console-underscore hidden'
+            visible = false
+          } else {
+            con.className = 'console-underscore'
+
+            visible = true
+          }
+        }, 400)
+      }
+      var vm = new Vue({
+        el: '#mainPage',
+        data: {
+            crocus: 'http://www.crocus.co.kr',
+            isMain: true,
+            a: '',
+            b: ''
+        },
+        created: function() {
+          // not working on local
+					// if(window.location.href !== this.crocus) {
+					// 	this.isMain = false
+					// }
+        },
+        mounted: function () {
+          particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { console.log("good")})
+          consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])
+        },
+
+        methods: {
+          goBlog: function () {
+            window.location.href = 'http://www.crocus.co.kr/341'
+          }
+        }
+      });
+    </script>
+  </body>
+  
+  <style scoped>
+      /* ---- reset ---- */ 
+      body{ 
+          margin:0; 
+      } 
+      canvas{ 
+          display: block; 
+          vertical-align: bottom; 
+      } 
+      /* ---- particles.js container ---- */ 
+      #particles-js{ 
+          position:absolute; 
+          width: 100%; 
+          height: 100%; 
+          background-color: transparent; 
+          background-image: url("https://tistory4.daumcdn.net/tistory/1636210/skin/images/starry.jpg");        
+          background-repeat: no-repeat; 
+          background-size: cover; 
+          background-position: 50% 50%; 
+      } 
+      .console-container{
+          font-family: 'Courgette', cursive ;
+          line-height: 150%;
+          font-size: 35px;
+          color:white;
+          user-select: none;
+          position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)
+      }
+      .hidden {
+          opacity:0;
+      }
+      .console-underscore {
+          display:inline-block;
+          color:tomato;
+          position:relative;
+          top:-0.14em;
+          left:-8px;
+      }
+  </style>
+</html>

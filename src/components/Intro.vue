@@ -28,9 +28,7 @@ export default {
     console.log('Your connect time is %s', connectTime)
   },
   mounted: function () {
-    particlesJS.load('particles-js', '../static/json/particlesjs-config.json', function () {
-
-    })
+    particlesJS.load('particles-js', '../static/json/particlesjs-config.json', function () {})
     consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])
   },
 

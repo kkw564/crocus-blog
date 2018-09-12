@@ -4,6 +4,7 @@ import re
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 chrome_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'chromedriver')
 driver = webdriver.Chrome(chrome_path)
@@ -43,11 +44,14 @@ action = webdriver.common.action_chains.ActionChains(driver)
 action.move_to_element_with_offset(htmlXpath, 50, 500)
 action.click()
 action.perform()
+action.key_down(Keys.CONTROL).send_keys('f').key_up(Keys.CONTROL).perform()
+action.send_keys('/keywordRankList.*/').key_down(Keys.ENTER).perform()
 
-current_url = driver.current_url
-regex = r'keywordRankList=.*'
+ret = ','.join(ret)
+print("ret : ", ret)
+action.send_keys('keywordRankList:[').send_keys(ret).send_keys('],').perform()
 
-current_url = current_url.replace(regex, 'keywordRankList=['+str(ret)+']')
+driver.find_element_by_xpath('//*[@id="skin-editor"]/div/div[3]/div/div[1]/button[3]').click()
 
 
 

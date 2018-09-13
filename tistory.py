@@ -33,6 +33,7 @@ for i in range(0, len(ret)):
     print('i :: ', i, " ret :: ", ret[i])
 
 print(ret)
+
 print("\n".join(ret))
 
 driver.get('https://programbasic.tistory.com/manage/design/skin/edit#/source/html/')
@@ -47,11 +48,11 @@ action.perform()
 action.key_down(Keys.CONTROL).send_keys('f').key_up(Keys.CONTROL).perform()
 action.send_keys('/keywordRankList.*/').key_down(Keys.ENTER).perform()
 
+for i in range(0,len(ret)):
+    ret[i] = '"' + ret[i] + '"'    
+
 ret = ','.join(ret)
 print("ret : ", ret)
 action.send_keys('keywordRankList:[').send_keys(ret).send_keys('],').perform()
 
 driver.find_element_by_xpath('//*[@id="skin-editor"]/div/div[3]/div/div[1]/button[3]').click()
-
-
-

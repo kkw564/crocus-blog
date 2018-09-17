@@ -110,18 +110,37 @@
 		width: 100%;
 		height: 100%;
 		background-color: transparent;
-		background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry.jpg");
+		background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry1.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
 	}
-
 	#particles-js2 {
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		background-color: transparent;
 		background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry2.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+	#particles-js3 {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: transparent;
+		background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry3.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 50% 50%;
+	}
+	#particles-js4 {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: transparent;
+		background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry4.jpg");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
@@ -232,6 +251,10 @@
 		position: absolute;
 		font-size: 20px;
 	}
+	#search-text:focus {
+		background-color: #f5f4f3;
+		color: black;
+	}
 	#search-img {
 		width: 40px;
 		height: 40px;
@@ -247,10 +270,10 @@
 <body id="[##_body_id_##]">
 	<div id="mainPage">
 		<template v-if="isMain">
-			<div :id="bgImg % 2 === 0 ? 'particles-js' : 'particles-js2'">
-				<div class='console-container' @click="goBlog">
-					<span id='text'></span>
-					<div class='console-underscore' id='console'>_</div>
+			<div :id="bgImg % 4 === 0 ? 'particles-js' : bgImg % 4 === 1 ? 'particles-js2' : bgImg % 4 === 2 ? 'particles-js3' : 'particles-js4' ">
+				<div class='console-container'>
+					<span id='text' @click="goBlog"></span>
+					<div class='console-underscore' id='console' @click="goBlog">_</div>
 				</div>
 				
 				<div id="keyword-content">
@@ -742,11 +765,19 @@
 			mounted: function () {
 
 				this.bgImg = Math.floor(Math.random() * 10);
-				if (this.bgImg % 2 == 0) {
+				if (this.bgImg % 4 == 0) {
 					particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
 				}
-				else {
+				else if(this.bgImg % 4 === 1){
 					particlesJS.load('particles-js2', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
+				}
+
+				else if(this.bgImg % 4 === 2){
+					particlesJS.load('particles-js3', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
+				}
+
+				else if(this.bgImg % 4 === 3){
+					particlesJS.load('particles-js4', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
 				}
 
 				consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])

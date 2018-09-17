@@ -30,7 +30,7 @@
 
 
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -132,11 +132,12 @@
 		color: white;
 		user-select: none;
 		position: absolute;
-		top: 50%;
+		top: 35%;
 		left: 50%;
-		transform: translate(-50%, -50%)
+		transform: translate(-50%, -50%);
+		width: 100%;
+		text-align: center;
 	}
-
 	.hidden {
 		opacity: 0;
 	}
@@ -147,6 +148,80 @@
 		position: relative;
 		top: -0.14em;
 		left: -8px;
+	}
+
+	#content {
+		font-size: 18px;
+		color: white;
+		user-select: none;
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		text-align: center;
+	}
+
+	#ticker a {
+		color: #FFF;
+		text-decoration: none;
+	}
+
+	#rank-list a:hover {
+		text-decoration: underline;
+	}
+
+	#ticker {
+		overflow: hidden;
+		width: 100%;
+		height: 20px;
+		margin: 0;
+		text-align: center;
+	}
+
+	#ticker dt {
+		display: none;
+	}
+
+	#ticker dd {
+		position: relative;
+		margin: 0;
+	}
+
+	#ticker ol {
+		position: relative;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	#ticker li {
+		height: 20px;
+		line-height: 20px;
+	}
+	#search-text {
+		border-radius: 50px;
+		width: 60%;
+		height: 30px;
+		background: rgba(255, 255, 255, 0.5);
+		border: none;
+		padding: 0 10px;
+		color: white;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		/* width: 100%; */
+		text-align: center;
+		position: absolute;
+	}
+	#search-img {
+		width:40px;
+		height:40px;
+		top: 50%;
+		left: 75%;
+		transform: translate(-50%, -50%);
+		position: absolute;
 	}
 </style>
 
@@ -162,6 +237,21 @@
 				<div class='console-container' @click="goBlog">
 					<span id='text'></span>
 					<div class='console-underscore' id='console'>_</div>
+				</div>
+				
+				<div id="content">
+					<dl id="ticker">
+						<dd>
+							<ol>
+								<li v-for="i in keywordRankList"><a href="#">{{ i }}</a></li>
+							</ol>
+						</dd>
+					</dl>
+				</div>
+				
+				<div id="search-box">
+					<input id="search-text">
+					<img id="search-img" src="https://tistory3.daumcdn.net/tistory/1636210/skin/images/searchicon.png">
 				</div>
 			</div>
 		</template>
@@ -549,6 +639,21 @@
 	<div id="sidebar-toggle"><i class="icon-reorder"></i></div>
 
 	<script>
+
+		$(function() {
+			var count = $('#ticker li').length;
+			var height = $('#ticker li').height();
+
+			function step(index) {
+				$('#ticker ol').delay(2000).animate({
+					top: -height * index,
+				}, 500, function() {
+					step((index + 1) % count);
+				});
+			}
+
+			step(1);
+		});
 		function consoleText(words, id, colors) {
 			if (colors === undefined) colors = ['#fff']
 			var visible = true
@@ -602,7 +707,8 @@
 				a: '',
 				b: '',
 				isMain: true,
-				bgImg: 0
+				bgImg: 0,				
+				keywordRankList:['유입 키워드 순위', '1 블록체인 이란', '2 확장 유클리드 알고리즘', '3 유클리드 알고리즘', '4 파이썬 scanf', '5 타원 곡선 암호 방식'],
 			},
 			created: function () {
 				if (window.location.href !== this.crocus) {

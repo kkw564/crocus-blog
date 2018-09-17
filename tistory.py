@@ -26,10 +26,9 @@ keywordRank = soup.select('.wrap_box .box_keyword')
 keywordRank = str(keywordRank)
 regex = r'>[가-힣a-zA-Z\s]+<'
 ret = re.findall(regex, keywordRank)
+ret = ret[1:]
 for i in range(0, len(ret)):
     ret[i] = ret[i][1:len(ret[i]) - 1]
-    if i != 0:
-        ret[i] = str(i) + ' ' + ret[i]
     print('i :: ', i, " ret :: ", ret[i])
 
 print(ret)
@@ -45,7 +44,11 @@ action = webdriver.common.action_chains.ActionChains(driver)
 action.move_to_element_with_offset(htmlXpath, 50, 500)
 action.click()
 action.perform()
-action.key_down(Keys.CONTROL).send_keys('f').key_up(Keys.CONTROL).perform()
+action.key_down(Keys.CONTROL).send_keys('f').key_up(Keys.CONTROL)
+action.send_keys('/keywordRankList.*/').key_down(Keys.ENTER)
+action.key_down(Keys.CONTROL).send_keys('f').key_up(Keys.CONTROL)
+action.send_keys('/keywordRankList.*/').key_down(Keys.ENTER)
+action.key_down(Keys.CONTROL).send_keys('f').key_up(Keys.CONTROL)
 action.send_keys('/keywordRankList.*/').key_down(Keys.ENTER).perform()
 
 for i in range(0,len(ret)):

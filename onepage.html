@@ -217,7 +217,7 @@
 		text-decoration: underline;
 	}
 	#ticker-topic {
-		font-size: 20px;
+		font-size: 15px;
 		font-weight: bold;
 		margin-bottom: 20px;
 	}
@@ -306,12 +306,14 @@
 				
 				<div id="keyword-content">
 					<div id="ticker-topic">
-						유입 키워드 순위
+						{{ keywordName }}
 					</div>
 					<dl id="ticker">
 						<dd>
 							<ol>
-								<li v-for="i in keywordRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 0" v-for="i in keywordRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 1" v-for="i in keywordInnerRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 2" v-for="i in keywordOuterRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
 							</ol>
 						</dd>
 					</dl>
@@ -791,10 +793,14 @@
 				a: '',
 				b: '',
 				isMain: true,
-				bgImg: 0,				
-				keywordRankList:['블록체인 이란', '확장 유클리드 알고리즘', '유클리드 알고리즘', '파이썬 scanf', '타원 곡선 암호 방식'],
+				bgImg: 0,
+				keywordRankList:[],
+				keywordInnerRankList:[],
+				keywordOuterRankList:[],
 				currentText:'',
 				searchText:'',
+				keyword: '',
+				keywordName: '',
 				geeye: false,
 			},
 			created: function () {
@@ -809,7 +815,6 @@
 				}
 			},
 			mounted: function () {
-
 				this.bgImg = Math.floor(Math.random() * 10);
 				if (this.bgImg % 4 == 0) {
 					particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
@@ -825,8 +830,18 @@
 				else if(this.bgImg % 4 === 3){
 					particlesJS.load('particles-js4', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
 				}
-
 				consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])
+			
+				this.keyword = Math.floor(Math.random() * 3);
+				if(this.keyword == 0) {
+					this.keywordName = "유입 키워드 순위"
+				}
+				else if(this.keyword == 1) {
+					this.keywordName = "내부 검색 키워드"
+				}
+				else if(this.keyword == 2) {
+					this.keywordName = "외부 검색 키워드"
+				}
 			},
 
 			methods: {

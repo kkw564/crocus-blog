@@ -99,11 +99,34 @@
 		}
 	}
 
+	@font-face{font-family: 'Baemin Hanna'; src:url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.ttf')}
+	@font-face{font-family: 'Baemin Hanna'; src:url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot')}
+
 	canvas {
 		display: block;
 		vertical-align: bottom;
 	}
-
+	#geeye-img {
+		background-image: url(https://tistory2.daumcdn.net/tistory/1636210/skin/images/geeye.jpg);
+		height: 80vh;
+		background-position: top;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	#geeye-text{
+		height: 5vh;
+		text-align: center;
+		font-family: 'Baemin Hanna';
+		font-size: 30px;
+		margin-top: 5vh;
+	}
+	#geeye-day{
+		height: 7vh;
+		text-align: center;
+		font-family: 'Baemin Hanna';
+		font-size: 20px;
+		margin-top: 3vh;
+	}
 	/* ---- particles.js container ---- */
 	#particles-js {
 		position: absolute;
@@ -194,7 +217,7 @@
 		text-decoration: underline;
 	}
 	#ticker-topic {
-		font-size: 20px;
+		font-size: 15px;
 		font-weight: bold;
 		margin-bottom: 20px;
 	}
@@ -270,7 +293,12 @@
 <body id="[##_body_id_##]">
 	<div id="mainPage">
 		<template v-if="isMain">
-			<div :id="bgImg % 4 === 0 ? 'particles-js' : bgImg % 4 === 1 ? 'particles-js2' : bgImg % 4 === 2 ? 'particles-js3' : 'particles-js4' ">
+			<div v-if="geeye">
+				<div id="geeye-img"></div>
+				<div id="geeye-text"></div>
+				<div id="geeye-day"></div>
+			</div>
+			<div v-else :id="bgImg % 4 === 0 ? 'particles-js' : bgImg % 4 === 1 ? 'particles-js2' : bgImg % 4 === 2 ? 'particles-js3' : 'particles-js4' ">
 				<div class='console-container'>
 					<span id='text' @click="goBlog"></span>
 					<div class='console-underscore' id='console' @click="goBlog">_</div>
@@ -278,12 +306,14 @@
 				
 				<div id="keyword-content">
 					<div id="ticker-topic">
-						유입 키워드 순위
+						{{ keywordName }}
 					</div>
 					<dl id="ticker">
 						<dd>
 							<ol>
-								<li v-for="i in keywordRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 0" v-for="i in keywordRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 1" v-for="i in keywordInnerRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 2" v-for="i in keywordOuterRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
 							</ol>
 						</dd>
 					</dl>
@@ -678,6 +708,23 @@
 	<div id="sidebar-toggle"><i class="icon-reorder"></i></div>
 
 	<script>
+		//디데이 종료 일자 설정
+		var firstDay = new Date("March 5, 2018 00:00:00").getTime();
+		//1초마다 갱신되도록 함수 생성,실행
+		var x = setInterval(function() {
+			// 오늘 날짜 등록
+			var now = new Date().getTime();
+			// 종료일자에서 현재일자를 뺀 시간
+			var distance = now - firstDay;
+			// 각 변수에 일, 시, 분, 초를 등록
+			var d = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
+			var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var s = Math.floor((distance % (1000 * 60)) / 1000);
+			//id가 d-day인 HTML코드에 내용 삽입
+			document.getElementById("geeye-text").innerHTML = "공주님을 사랑한 시간";
+			document.getElementById("geeye-day").innerHTML = d +"days " + h + ":" + m + ":" + s;
+		});
 
 		$(function() {
 			var count = $('#ticker li').length;
@@ -746,10 +793,15 @@
 				a: '',
 				b: '',
 				isMain: true,
-				bgImg: 0,				
-				keywordRankList:['블록체인 이란', '확장 유클리드 알고리즘', '유클리드 알고리즘', '파이썬 scanf', '타원 곡선 암호 방식'],
+				bgImg: 0,
+				keywordRankList:[],
+				keywordInnerRankList:[],
+				keywordOuterRankList:[],
 				currentText:'',
 				searchText:'',
+				keyword: '',
+				keywordName: '',
+				geeye: false,
 			},
 			created: function () {
 				if (window.location.href !== this.crocus) {
@@ -763,7 +815,6 @@
 				}
 			},
 			mounted: function () {
-
 				this.bgImg = Math.floor(Math.random() * 10);
 				if (this.bgImg % 4 == 0) {
 					particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
@@ -779,8 +830,18 @@
 				else if(this.bgImg % 4 === 3){
 					particlesJS.load('particles-js4', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
 				}
-
 				consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])
+			
+				this.keyword = Math.floor(Math.random() * 3);
+				if(this.keyword == 0) {
+					this.keywordName = "유입 키워드 순위"
+				}
+				else if(this.keyword == 1) {
+					this.keywordName = "내부 검색 키워드"
+				}
+				else if(this.keyword == 2) {
+					this.keywordName = "외부 검색 키워드"
+				}
 			},
 
 			methods: {
@@ -794,6 +855,9 @@
 			
 			watch:{
 				currentText: function () {
+					if(this.currentText.toLowerCase() === "geeye"){
+						this.geeye = true
+					}
 					this.searchText = "https://www.crocus.co.kr/search/" + this.currentText
 				}
 			}

@@ -99,11 +99,34 @@
 		}
 	}
 
+	@font-face{font-family: 'Baemin Hanna'; src:url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.ttf')}
+	@font-face{font-family: 'Baemin Hanna'; src:url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot')}
+
 	canvas {
 		display: block;
 		vertical-align: bottom;
 	}
-
+	#geeye-img {
+		background-image: url(https://tistory2.daumcdn.net/tistory/1636210/skin/images/geeye.jpg);
+		height: 80vh;
+		background-position: top;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	#geeye-text{
+		height: 5vh;
+		text-align: center;
+		font-family: 'Baemin Hanna';
+		font-size: 30px;
+		margin-top: 5vh;
+	}
+	#geeye-day{
+		height: 7vh;
+		text-align: center;
+		font-family: 'Baemin Hanna';
+		font-size: 20px;
+		margin-top: 3vh;
+	}
 	/* ---- particles.js container ---- */
 	#particles-js {
 		position: absolute;
@@ -270,7 +293,12 @@
 <body id="[##_body_id_##]">
 	<div id="mainPage">
 		<template v-if="isMain">
-			<div :id="bgImg % 4 === 0 ? 'particles-js' : bgImg % 4 === 1 ? 'particles-js2' : bgImg % 4 === 2 ? 'particles-js3' : 'particles-js4' ">
+			<div v-if="geeye">
+				<div id="geeye-img"></div>
+				<div id="geeye-text"></div>
+				<div id="geeye-day"></div>
+			</div>
+			<div v-else :id="bgImg % 4 === 0 ? 'particles-js' : bgImg % 4 === 1 ? 'particles-js2' : bgImg % 4 === 2 ? 'particles-js3' : 'particles-js4' ">
 				<div class='console-container'>
 					<span id='text' @click="goBlog"></span>
 					<div class='console-underscore' id='console' @click="goBlog">_</div>
@@ -678,6 +706,23 @@
 	<div id="sidebar-toggle"><i class="icon-reorder"></i></div>
 
 	<script>
+		//디데이 종료 일자 설정
+		var firstDay = new Date("March 5, 2018 00:00:00").getTime();
+		//1초마다 갱신되도록 함수 생성,실행
+		var x = setInterval(function() {
+			// 오늘 날짜 등록
+			var now = new Date().getTime();
+			// 종료일자에서 현재일자를 뺀 시간
+			var distance = now - firstDay;
+			// 각 변수에 일, 시, 분, 초를 등록
+			var d = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
+			var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var s = Math.floor((distance % (1000 * 60)) / 1000);
+			//id가 d-day인 HTML코드에 내용 삽입
+			document.getElementById("geeye-text").innerHTML = "공주님을 사랑한 시간";
+			document.getElementById("geeye-day").innerHTML = d +"days " + h + ":" + m + ":" + s;
+		});
 
 		$(function() {
 			var count = $('#ticker li').length;
@@ -750,6 +795,7 @@
 				keywordRankList:['블록체인 이란', '확장 유클리드 알고리즘', '유클리드 알고리즘', '파이썬 scanf', '타원 곡선 암호 방식'],
 				currentText:'',
 				searchText:'',
+				geeye: false,
 			},
 			created: function () {
 				if (window.location.href !== this.crocus) {
@@ -794,6 +840,9 @@
 			
 			watch:{
 				currentText: function () {
+					if(this.currentText.toLowerCase() === "geeye"){
+						this.geeye = true
+					}
 					this.searchText = "https://www.crocus.co.kr/search/" + this.currentText
 				}
 			}

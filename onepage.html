@@ -99,12 +99,20 @@
 		}
 	}
 
-	@font-face{font-family: 'Baemin Hanna'; src:url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.ttf')}
-	@font-face{font-family: 'Baemin Hanna'; src:url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot')}
+	@font-face {
+		font-family: 'Baemin Hanna';
+		src: url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot');
+		src: local('Baemin Hanna'),
+			url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot?'),
+			url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.ttf') format('truetype');
+	}
 
 	canvas {
 		display: block;
 		vertical-align: bottom;
+	}
+	.main-on{
+		display: none !important;
 	}
 	#geeye-img {
 		background-image: url(https://tistory2.daumcdn.net/tistory/1636210/skin/images/geeye.jpg);
@@ -292,7 +300,7 @@
 
 <body id="[##_body_id_##]">
 	<div id="mainPage">
-		<template v-if="isMain">
+		<template class="main-on" v-if="isMain">
 			<div v-if="geeye">
 				<div id="geeye-img"></div>
 				<div id="geeye-text"></div>
@@ -704,7 +712,7 @@
 	</div>
 
 	</s_t3>
-	</div>
+
 	<div id="sidebar-toggle"><i class="icon-reorder"></i></div>
 
 	<script>
@@ -722,9 +730,11 @@
 			var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			var s = Math.floor((distance % (1000 * 60)) / 1000);
 			//id가 d-day인 HTML코드에 내용 삽입
-			document.getElementById("geeye-text").innerHTML = "공주님을 사랑한 시간";
-			document.getElementById("geeye-day").innerHTML = d +"days " + h + ":" + m + ":" + s;
-		});
+			if(document.getElementById("geeye-text") !== null) {		
+				document.getElementById("geeye-text").innerHTML = "공주님을 사랑한 시간";
+				document.getElementById("geeye-day").innerHTML = d +"days " + h + ":" + m + ":" + s;	
+			}
+		}, 1000);
 
 		$(function() {
 			var count = $('#ticker li').length;
@@ -806,6 +816,7 @@
 			created: function () {
 				if (window.location.href !== this.crocus) {
 					this.isMain = false
+					this.geeye = false
 				}
 			},
 			beforeMount: function () {
@@ -881,6 +892,7 @@
 	<script>
 		if (window.location.pathname == '/341') { document.write('<style>.adsbygoogle{display:none !important;}	#head{display:none;} .tag_label{display:none;} </style>'); }
 		if (window.location.pathname == '/') { document.write('<style>.adsbygoogle{display:none !important;}	.adsbygoogle adsbygoogle-noablate{display:none !important;} #sidebar-toggle{display:none !important;} </style>'); } 
+		if (window.location.pathname == '/') { document.write('<style>.main-on{display:"" !important;} </style>'); }
 	</script>
 </body>
 

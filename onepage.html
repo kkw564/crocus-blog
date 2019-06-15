@@ -10,6 +10,36 @@
 	<meta name="google-site-verification" content="fZ2IOxDG5jyrfrNr_70Nh4PpStZEmfLpypzeA2ccffU" />
 	<meta name="google-site-verification" content="NmdI0tE24gMymXXGvyqaq5ekwbWfWysXGJai27Cp1zw" />
 
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="./images/common.js"></script>
+	<script src="./images/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+	<script src="./images/ygal-edit.js"></script>
+	<!-- Fix for bug in skin -->
+	<script>
+		if (window.location.href.includes(".com/search/") || window.location.href.includes(".co.kr/search/")) {
+			document.write('<style>.nodisplay-contents{display:none !important;} </style>');
+		}
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			if(window.location.href.indexOf(".com/search/") > -1 || window.location.href.indexOf(".co.kr/search/") > -1) {
+				//$(".nodisplay-contents").remove()
+			}
+		});
+	</script>
+
+	<script>
+		if (window.location.pathname == '/341') { document.write('<style>.adsbygoogle{display:none !important;}	#head{display:none;} .tag_label{display:none;} </style>'); }
+		if (window.location.pathname == '/') { document.write('<style>.adsbygoogle{display:none !important;}	.adsbygoogle adsbygoogle-noablate{display:none !important;} #sidebar-toggle{display:none !important;} </style>'); }
+		if (window.location.pathname == '/') { document.write('<style>.main-on{display:"" !important;} </style>'); }
+		if(window.location.origin === "https://programbasic.tistory.com") {
+			window.location.href = "https://www.crocus.co.kr" + window.location.pathname
+		}
+	</script>
+
+
 	<!-- Google Search Console(Crocus) -->
 	<script>
 		(function (i, s, o, g, r, a, m) {
@@ -100,7 +130,7 @@
 	}
 
 	@font-face {
-		font-family: 'Baemin Hanna';
+		font-family: 'Baemin Hanna'; 
 		src: url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot');
 		src: local('Baemin Hanna'),
 			url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot?'),
@@ -296,7 +326,7 @@
 <!-- tiny box 팝업 -->
 <script language="JavaScript" src="https://tistory1.daumcdn.net/tistory/1636210/skin/images/tinybox.js"></script>
 <!-- &#44172;&#49884;&#54032; iframe &#51060;&#50857; js -->
-<LINK REL=StyleSheet HREF="https://tistory1.daumcdn.net/tistory/1636210/skin/images/style_tinybox_ex.css" TYPE="text/css"><!-- &#44172;&#49884;&#54032; iframe &#51060;&#50857; css -->
+<link rel="StyleSheet" href="https://tistory1.daumcdn.net/tistory/1636210/skin/images/style_tinybox_ex.css" type="text/css"><!-- &#44172;&#49884;&#54032; iframe &#51060;&#50857; css -->
 
 <body id="[##_body_id_##]">
 	<div id="mainPage">
@@ -454,7 +484,8 @@
 									</ul>
 								</div>
 							</s_list>
-
+			
+	
 							<s_notice_rep>
 								<div id="head">
 									<h2><a href="[##_article_rep_link_##]">[##_notice_rep_title_##]</a></h2>
@@ -474,7 +505,6 @@
 									</div>
 								</div>
 							</s_notice_rep>
-
 							<s_article_protected>
 								<div id="head">
 									<h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
@@ -489,114 +519,116 @@
 								</div>
 							</s_article_protected>
 
-							<s_article_rep>
-								<div id="head">
-									<h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
-									<div class="date">[##_article_rep_date_##]</div>
-								</div>
-
-								<div id="body" class="entry">
-									<div class="tag_label">
-										<s_tag_label>
-											<span>[##_tag_label_rep_##]</span>
-											<div class="clear"></div>
-										</s_tag_label>
+							<div class="nodisplay-contents">
+			
+								<s_article_rep>
+									<div id="head">
+										<h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+										<div class="date">[##_article_rep_date_##]</div>
 									</div>
 
-									<div class="article">
-										<!-- 데이블 div -->
-										<div itemprop="articleBody">
-											[##_article_rep_desc_##]
+									<div id="body" class="entry">
+										<div class="tag_label">
+											<s_tag_label>
+												<span>[##_tag_label_rep_##]</span>
+												<div class="clear"></div>
+											</s_tag_label>
 										</div>
-									</div>
 
-									<s_ad_div>
-										<div class="admin">
-											<a href="[##_s_ad_m_link_##]">Modify</a>
-											<span class="line">|</span>
-											<a href="#" onclick="[##_s_ad_d_onclick_##]">Delete</a>
+										<div class="article">
+											<!-- 데이블 div -->
+											<div itemprop="articleBody">
+												[##_article_rep_desc_##]
+											</div>
 										</div>
-									</s_ad_div>
 
-									<s_rp>
-										<div id="communicate">
-											<s_rp_input_form>
-												<div class="communicateWrite">
-													<s_rp_member>
-														<s_rp_guest>
-															<div class="name guest">
-																<label for="name">NAME</label>
-																<input id="name" type="text" name="[##_rp_input_name_##]" value="[##_guest_name_##]" />
-															</div>
-															<div class="password guest">
-																<label for="password">PASSWORD</label>
-																<input id="password" type="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]" />
-															</div>
-															<div class="homepage guest">
-																<label for="homepage">HOMEPAGE</label>
-																<input id="homepage" type="text" name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]" />
-															</div>
-														</s_rp_guest>
-													</s_rp_member>
-													<div class="textarea"><textarea name="[##_rp_input_comment_##]" rows="10" cols="50"></textarea></div>
-													<div class="submit"><input type="submit" value="WRITE" onclick="[##_rp_onclick_submit_##]" /></div>
-													<div class="secret">
-														<label for="secret">SECRET</label>
-														<input id="secret" type="checkbox" name="[##_rp_input_is_secret_##]" />
-													</div>
-													<div class="clear"></div>
-												</div>
-											</s_rp_input_form>
+										<s_ad_div>
+											<div class="admin">
+												<a href="[##_s_ad_m_link_##]">Modify</a>
+												<span class="line">|</span>
+												<a href="#" onclick="[##_s_ad_d_onclick_##]">Delete</a>
+											</div>
+										</s_ad_div>
 
-											<s_rp_container>
-												<div class="communicateList">
-													<ol>
-														<s_rp_rep>
-															<li id='[##_rp_rep_id_##]'>
-																<div class="[##_rp_rep_class_##]">
-																	<div class="info">
-																		<span class="name">[##_rp_rep_name_##]</span>
-																		<span class="date">[##_rp_rep_date_##]</span>
-																	</div>
-																	<div class="clear"></div>
-																	<p>[##_rp_rep_desc_##]</p>
-																	<div class="control">
-																		<a href="[##_rp_rep_link_##]" class="url">#</a>
-																		<a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
-																		<a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="write">Reply</a>
-																		<div class="clear"></div>
-																	</div>
+										<s_rp>
+											<div id="communicate">
+												<s_rp_input_form>
+													<div class="communicateWrite">
+														<s_rp_member>
+															<s_rp_guest>
+																<div class="name guest">
+																	<label for="name">NAME</label>
+																	<input id="name" type="text" name="[##_rp_input_name_##]" value="[##_guest_name_##]" />
 																</div>
-																<s_rp2_container>
-																	<ul>
-																		<s_rp2_rep>
-																			<li id='[##_rp_rep_id_##]'>
-																				<div class="[##_rp_rep_class_##]">
-																					<div class="info">
-																						<span class="name">[##_rp_rep_name_##]</span>
-																						<span class="date">[##_rp_rep_date_##]</span>
-																					</div>
-																					<div class="clear"></div>
-																					<p>[##_rp_rep_desc_##]</p>
-																					<div class="control">
-																						<a href="[##_rp_rep_link_##]" class="url">#</a>
-																						<a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
-																					</div>
-																				</div>
-																			</li>
-																		</s_rp2_rep>
-																	</ul>
-																</s_rp2_container>
-															</li>
-														</s_rp_rep>
-													</ol>
-												</div>
-											</s_rp_container>
-										</div>
-									</s_rp>
-								</div>
-							</s_article_rep>
+																<div class="password guest">
+																	<label for="password">PASSWORD</label>
+																	<input id="password" type="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]" />
+																</div>
+																<div class="homepage guest">
+																	<label for="homepage">HOMEPAGE</label>
+																	<input id="homepage" type="text" name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]" />
+																</div>
+															</s_rp_guest>
+														</s_rp_member>
+														<div class="textarea"><textarea name="[##_rp_input_comment_##]" rows="10" cols="50"></textarea></div>
+														<div class="submit"><input type="submit" value="WRITE" onclick="[##_rp_onclick_submit_##]" /></div>
+														<div class="secret">
+															<label for="secret">SECRET</label>
+															<input id="secret" type="checkbox" name="[##_rp_input_is_secret_##]" />
+														</div>
+														<div class="clear"></div>
+													</div>
+												</s_rp_input_form>
 
+												<s_rp_container>
+													<div class="communicateList">
+														<ol>
+															<s_rp_rep>
+																<li id='[##_rp_rep_id_##]'>
+																	<div class="[##_rp_rep_class_##]">
+																		<div class="info">
+																			<span class="name">[##_rp_rep_name_##]</span>
+																			<span class="date">[##_rp_rep_date_##]</span>
+																		</div>
+																		<div class="clear"></div>
+																		<p>[##_rp_rep_desc_##]</p>
+																		<div class="control">
+																			<a href="[##_rp_rep_link_##]" class="url">#</a>
+																			<a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
+																			<a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="write">Reply</a>
+																			<div class="clear"></div>
+																		</div>
+																	</div>
+																	<s_rp2_container>
+																		<ul>
+																			<s_rp2_rep>
+																				<li id='[##_rp_rep_id_##]'>
+																					<div class="[##_rp_rep_class_##]">
+																						<div class="info">
+																							<span class="name">[##_rp_rep_name_##]</span>
+																							<span class="date">[##_rp_rep_date_##]</span>
+																						</div>
+																						<div class="clear"></div>
+																						<p>[##_rp_rep_desc_##]</p>
+																						<div class="control">
+																							<a href="[##_rp_rep_link_##]" class="url">#</a>
+																							<a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
+																						</div>
+																					</div>
+																				</li>
+																			</s_rp2_rep>
+																		</ul>
+																	</s_rp2_container>
+																</li>
+															</s_rp_rep>
+														</ol>
+													</div>
+												</s_rp_container>
+											</div>
+										</s_rp>
+									</div>
+								</s_article_rep>
+							</div>
 							<s_guest>
 								<div id="head">
 									<h2>Guestbook</h2>
@@ -709,9 +741,9 @@
 
 				</div> <!-- content close -->
 			</div> <!-- wrap close -->
+	</s_t3>
 	</div>
 
-	</s_t3>
 
 	<div id="sidebar-toggle"><i class="icon-reorder"></i></div>
 
@@ -804,9 +836,9 @@
 				b: '',
 				isMain: true,
 				bgImg: 0,
-				keywordRankList:[],
-				keywordInnerRankList:[],
-				keywordOuterRankList:[],
+				keywordRankList:["피터슨 알고리즘","R언어 정규분포","fork 소켓","http 작동원리"],
+				keywordInnerRankList:["lca 알고리즘","kmp","최소 버텍스 커버","bfs","최소 컷","dfs","블록체인 이란","LCA","펜윅 트리","파이썬 scanf"],
+				keywordOuterRankList:["블록체인","crocus","확장된 유클리드 알고리즘","파이썬 scanf","유클리드 알고리즘","modular arithmetic","mips code","데이터베이스 외래키","kkw564","c  영화풀이 소스코드 예제"],
 				currentText:'',
 				searchText:'',
 				keyword: '',
@@ -818,6 +850,7 @@
 					this.isMain = false
 					this.geeye = false
 				}
+				
 			},
 			beforeMount: function () {
 				// el때문에 스타일이 뭉개지는 현상때문에 el을 메인이 아닐때는 삭제
@@ -828,8 +861,8 @@
 			mounted: function () {
 				this.bgImg = Math.floor(Math.random() * 10);
 				if (this.bgImg % 4 == 0) {
-					particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
-				}
+								particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
+				}		
 				else if(this.bgImg % 4 === 1){
 					particlesJS.load('particles-js2', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
 				}
@@ -874,26 +907,8 @@
 			}
 		});
 	</script>
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="./images/common.js"></script>
-	<script src="./images/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			if ($('body').width() > "960") {
-				$("#sidebar").mCustomScrollbar({
-					theme: "dark-thin",
-					autoHideScrollbar: "true"
-				});
-			};
-		});
-	</script>
-	<script src="./images/ygal-edit.js"></script>
+	
 
-	<script>
-		if (window.location.pathname == '/341') { document.write('<style>.adsbygoogle{display:none !important;}	#head{display:none;} .tag_label{display:none;} </style>'); }
-		if (window.location.pathname == '/') { document.write('<style>.adsbygoogle{display:none !important;}	.adsbygoogle adsbygoogle-noablate{display:none !important;} #sidebar-toggle{display:none !important;} </style>'); } 
-		if (window.location.pathname == '/') { document.write('<style>.main-on{display:"" !important;} </style>'); }
-	</script>
 </body>
 
 </html>

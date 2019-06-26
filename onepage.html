@@ -12,6 +12,22 @@
 
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="./images/common.js"></script>
+	
+	<!-- color highlighter -->
+	<link href="https://fonts.googleapis.com/css?family=Oxygen+Mono&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+		<style>
+			.hljs{
+				font-size:15px !important;
+				border-radius: 15px;
+				line-height: inherit;
+				font-family: 'Oxygen Mono', monospace;
+			}
+			pre { padding: 0px !important; border: 0px !important; }
+    </style>
+	
 	<!-- Fix for bug in skin -->
 	<script>		
 		if (window.location.href.includes(".com/search/") || window.location.href.includes(".co.kr/search/")) {
@@ -22,7 +38,7 @@
 	<script>		
 		$(document).ready(function () { 
 			if(window.location.href.indexOf(".com/search/") > -1 || window.location.href.indexOf(".co.kr/search/") > -1) {
-				//$(".nodisplay-contents").remove()
+				$(".nodisplay-contents").remove()
 			} 
 		});
 	</script>

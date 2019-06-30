@@ -14,7 +14,7 @@
 	<script src="./images/common.js"></script>
 	
 	<!-- color highlighter -->
-	<link href="https://fonts.googleapis.com/css?family=Oxygen+Mono&display=swap" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Oxygen+Mono&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
 		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
@@ -127,6 +127,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://unpkg.com/vuex"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 
 	<!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
 	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -140,6 +141,7 @@
 		#search-box {
 			width: 80% !important;
 		}
+		
 	}
 
 	@font-face {
@@ -336,6 +338,120 @@
 	}
 </style>
 
+	
+<!-- FULL SCREEN POPUP CSS / JS -->
+	<link href="//fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+	<style>
+		/*
+			@font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+		*/
+		@media screen and (max-width: 740px) {
+			.overlay a {
+				font-size:25px !important;
+			}
+			.donation-content{
+				font-size: 14px !important;
+				margin: 0 40px 0 40px !important;
+				word-break: break-all !important;
+			}
+			.overlay .closebtn {
+				font-size: 40px !important;
+			}
+		}
+		@font-face {
+			font-family: 'jalnan'; 
+			src: url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/JalnanOTF.eot');
+			src: local('jalnan'),
+				url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/Jalnan.ttf') format('truetype');
+		}
+		.overlay {
+			height: 0%;
+			width: 100%;
+			position: fixed;
+			z-index: 99999;
+			top: 0;
+			left: 0;
+			background-color: rgb(249,249,249);
+			background-color: rgba(249,249,249, 1);
+    	font-family: 'Comfortaa', cursive, serif;
+			overflow-y: auto;
+			transition: 0.5s;
+		}
+
+		.overlay-content {
+			position: relative;
+			/* top: 25%; */
+			width: 100%;
+			text-align: center;
+			margin-top: 10px;
+		}
+
+		.overlay a {
+			padding: 35px 0 30px 0;
+			text-decoration: none;
+			font-size: 50px;
+    	font-weight: bold;
+    	font-family: 'Comfortaa', cursive, serif;
+			color: #818CA3;
+			display: block;
+			transition: 0.3s;
+		}
+
+		.overlay a:hover {
+			color: #E77676;
+		}
+
+		.overlay .closebtn {
+			display: block;
+			position: absolute;
+			top: 25px;
+			right: 35px;
+			font-size: 60px;
+			z-index: 99999;
+			padding: 20px;
+		}
+		
+		.use-population{
+			color: #E77676 !important;
+		}
+		
+		.title-margin{
+			margin: 50px 0 15px 0;
+		}
+		
+		.donation-content{
+			font-family: 'jalnan' !important;
+			line-height: 50px;
+			font-size: 18px !important;
+		}
+
+		@media screen and (max-height: 450px) {
+			.overlay {overflow-y: auto;}
+			.overlay a {font-size: 20px}
+			.overlay .closebtn {
+				font-size: 40px;
+				top: 15px;
+				right: 35px;
+			}
+		}
+	</style>
+
+	<script>
+		function openNav() {
+			document.getElementById("myNav").style.height = "100%";
+			//document.body.style['overflow-y'] = 'hidden';
+			//document.body.style.overflowY = "hidden";
+			document.getElementsByTagName('html')[0].style.overflowY = "hidden";
+		}
+
+		function closeNav() {
+			document.getElementById("myNav").style.height = "0%";
+			//document.body.style.overflowY = "hidden";
+			document.getElementsByTagName('html')[0].style.overflowY = "auto";
+		}
+	</script>
+	
+	
 <!-- tiny box 팝업 -->
 <script language="JavaScript" src="https://tistory1.daumcdn.net/tistory/1636210/skin/images/tinybox.js"></script>
 <!-- &#44172;&#49884;&#54032; iframe &#51060;&#50857; js -->
@@ -378,6 +494,35 @@
 		<s_t3>
 			<div v-if="!isMain">
 				<div id="wrap">
+					<!-- FULL SCREEN POPUP -->
+					<div id="myNav" class="overlay">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<div class="overlay-content">
+							<a href="#" class="title-margin">Crocus</a>
+							<div class="donation-content">
+								공부한 내용을 정리하는 블로그로 시작한<br>
+								Crocus는 2014년 1월 14일 부터 시작하여<br>
+								현재 월 <span class="use-population">4만명</span>, 총 <span class="use-population">[##_count_total_##]명</span>의 방문자 수를 기록하고 있습니다.<br>
+							</div>
+							<a href="#" class="title-margin">Donation</a>
+							<div class="donation-content">
+								이제 많은 사용자들이 이용하는 만큼<br>
+								더 다양한 서비스 개발/제공을 위해 후원금을 모금하고자 합니다.<br>
+							</div>
+							<a href="#" class="title-margin">Account</a>
+							<div class="donation-content">
+								예금주 고관우<br>
+								신한은행 : 110-334-866541<br>
+								카카오뱅크 : 3333-01-7888060<br>
+								후원을 해주시는 분들은 Donators 명단에 성명, 후원금을 기입해드리며<br>
+								개인 블로그, 홈페이지가 있다면 추가로 입력해드리고자 합니다.<br>
+								<a href="https://www.crocus.co.kr/guestbook" class="donation-content" target="_blank">👉 후원 페이지 바로가기</a>
+							</div>
+							<a href="#" class="title-margin">Donators</a>
+							<!--<a href="#" onClick="closeNav()" class="title-margin">CLOSE</a>-->
+						</div>
+					</div>
+					
 					<div id="sidebar">
 						<br><br>
 						<h1><a href="https://www.crocus.co.kr/341">Crocus</a></h1>
@@ -406,9 +551,12 @@
 							</div>
 						</s_sidebar_element>
 
+						
+						<!-- DONATION BUTTON -->
 						<div class="donation-container">
-							<div class="donation-btn">Test</div>
+							<div class="donation-btn" onclick="openNav()">Donation</div>
 						</div>
+						
 						
 						<s_sidebar>
 							<s_sidebar_element>
@@ -648,7 +796,7 @@
 							</div>
 							<s_guest>
 								<div id="head">
-									<h2>Guestbook</h2>
+									<h2>Thanks To Donate For Crocus!</h2>
 								</div>
 
 								<div id="body" class="entry">
@@ -658,21 +806,21 @@
 												<s_guest_member>
 													<s_guest_form>
 														<div class="name guest no-margin">
-															<label for="name">NAME</label>
+															<label for="name">Donator Name</label>
 															<input id="name" type="text" name="[##_guest_input_name_##]" value="[##_guest_name_##]" />
 														</div>
 														<div class="password guest">
 															<label for="password">PASSWORD</label>
 															<input id="password" type="password" maxlength="8" name="[##_guest_input_password_##]" value="[##_guest_password_##]" />
 														</div>
-														<div class="homepage guest">
+												<!-- <div class="homepage guest">
 															<label for="homepage">HOMEPAGE</label>
-															<input id="homepage" type="text" name="[##_guest_input_homepage_##]" value="[##_guest_homepage_##]" />
-														</div>
+															<input id="homepage" type="text" name="[##_guest_input_homepage_##]" value="[##_guest_homepage_##]" /> 
+														</div> -->
 													</s_guest_form>
 												</s_guest_member>
-												<div class="textarea"><textarea name="[##_guest_textarea_body_##]" cols="50" rows="6"></textarea></div>
-												<div class="submit"><input type="submit" value="WRITE" onclick="[##_guest_onclick_submit_##]" /></div>
+												<div class="textarea"><textarea name="[##_guest_textarea_body_##]" cols="50" rows="6" placeholder="성명(닉네임) &#10;홈페이지 (블로그)를 기입해주세요."></textarea></div>
+												<div class="submit"><input type="submit" value="WRITE" onclick="[##_guest_onclick_submit_##]"/></div>
 												<div class="secret">
 													<label for="guestsecret">SECRET</label>
 													<input id="guestsecret" type="checkbox" name="secret" />

@@ -346,7 +346,7 @@
 			@font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
 		*/
 		@media screen and (max-width: 740px) {
-			.overlay a {
+			.overlay-a {
 				font-size:25px !important;
 			}
 			.donation-content{
@@ -356,6 +356,9 @@
 			}
 			.overlay .closebtn {
 				font-size: 40px !important;
+			}
+			.donation-content-link{
+				font-size: 14px !important;
 			}
 		}
 		@font-face {
@@ -386,7 +389,7 @@
 			margin-top: 10px;
 		}
 
-		.overlay a {
+		.overlay-a {
 			padding: 35px 0 30px 0;
 			text-decoration: none;
 			font-size: 50px;
@@ -411,7 +414,7 @@
 			padding: 20px;
 		}
 		
-		.use-population{
+		.color-important{
 			color: #E77676 !important;
 		}
 		
@@ -422,9 +425,13 @@
 		.donation-content{
 			font-family: 'jalnan' !important;
 			line-height: 50px;
-			font-size: 18px !important;
+			font-size: 18px;
 		}
-
+		.donation-content-link{
+			font-family: 'jalnan' !important;
+			line-height: 50px;
+			font-size: 18px;
+		}
 		@media screen and (max-height: 450px) {
 			.overlay {overflow-y: auto;}
 			.overlay a {font-size: 20px}
@@ -433,6 +440,7 @@
 				top: 15px;
 				right: 35px;
 			}
+			
 		}
 	</style>
 
@@ -498,27 +506,27 @@
 					<div id="myNav" class="overlay">
 						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 						<div class="overlay-content">
-							<a href="#" class="title-margin">Crocus</a>
+							<a href="#" class="title-margin overlay-a">Crocus</a>
 							<div class="donation-content">
 								공부한 내용을 정리하는 블로그로 시작한<br>
 								Crocus는 2014년 1월 14일 부터 시작하여<br>
-								현재 월 <span class="use-population">4만명</span>, 총 <span class="use-population">[##_count_total_##]명</span>의 방문자 수를 기록하고 있습니다.<br>
+								현재 월 <span class="color-important">4만명</span>, 총 <span class="color-important">[##_count_total_##]명</span>의 방문자 수를 기록하고 있습니다.<br>
 							</div>
-							<a href="#" class="title-margin">Donation</a>
+							<a href="#" class="title-margin overlay-a">Donation</a>
 							<div class="donation-content">
 								이제 많은 사용자들이 이용하는 만큼<br>
 								더 다양한 서비스 개발/제공을 위해 후원금을 모금하고자 합니다.<br>
 							</div>
-							<a href="#" class="title-margin">Account</a>
+							<a href="#" class="title-margin overlay-a">Account</a>
 							<div class="donation-content">
 								예금주 고관우<br>
 								신한은행 : 110-334-866541<br>
 								카카오뱅크 : 3333-01-7888060<br>
 								후원을 해주시는 분들은 Donators 명단에 성명, 후원금을 기입해드리며<br>
 								개인 블로그, 홈페이지가 있다면 추가로 입력해드리고자 합니다.<br>
-								<a href="https://www.crocus.co.kr/guestbook" class="donation-content" target="_blank">👉 후원 페이지 바로가기</a>
 							</div>
-							<a href="#" class="title-margin">Donators</a>
+								<a href="https://www.crocus.co.kr/guestbook" class="donation-content-link color-important" target="_blank">👉 후원 페이지 바로가기</a>
+							<a href="#" class="title-margin overlay-a">Donators</a>
 							<!--<a href="#" onClick="closeNav()" class="title-margin">CLOSE</a>-->
 						</div>
 					</div>

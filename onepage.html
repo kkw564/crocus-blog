@@ -156,7 +156,7 @@
 		document.onkeypress = getKey;
 	</script>
 
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 	<script src="https://unpkg.com/vuex"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 
@@ -1036,8 +1036,6 @@
 			el: '#mainPage',
 			data: {
 				crocus: 'https://www.crocus.co.kr/',
-				a: '',
-				b: '',
 				isMain: true,
 				bgImg: 0,
 				keywordRankList:["피터슨 알고리즘","R언어 정규분포","fork 소켓","http 작동원리"],
@@ -1050,22 +1048,21 @@
 				geeye: false,
 			},
 			created: function () {
-				if (window.location.href !== this.crocus) {
-					this.isMain = false
-					this.geeye = false
-				}
-				
 			},
 			beforeMount: function () {
-				// el때문에 스타일이 뭉개지는 현상때문에 el을 메인이 아닐때는 삭제
-				if (window.location.href !== this.crocus) {
-					this.$el = ''
-				}
 			},
 			mounted: function () {
+				if (window.location.href !== 'https://www.crocus.co.kr/') {
+					this.isMain = false
+					this.geeye = false
+				}				
+				// el때문에 스타일이 뭉개지는 현상때문에 el을 메인이 아닐때는 삭제
+				if (window.location.href !== 'https://www.crocus.co.kr/') {
+					this.$el = ''
+				}
 				this.bgImg = Math.floor(Math.random() * 10);
 				if (this.bgImg % 4 == 0) {
-								particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
+					particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
 				}		
 				else if(this.bgImg % 4 === 1){
 					particlesJS.load('particles-js2', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })

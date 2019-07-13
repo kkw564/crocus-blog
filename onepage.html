@@ -1050,15 +1050,15 @@
 			created: function () {
 			},
 			beforeMount: function () {
+				// el때문에 스타일이 뭉개지는 현상때문에 el을 메인이 아닐때는 삭제
+				if (window.location.href !== this.crocus) {
+					this.$el = ''
+				}
 			},
 			mounted: function () {
-				if (window.location.href !== 'https://www.crocus.co.kr/') {
+				if (window.location.href !== this.crocus) {
 					this.isMain = false
 					this.geeye = false
-				}				
-				// el때문에 스타일이 뭉개지는 현상때문에 el을 메인이 아닐때는 삭제
-				if (window.location.href !== 'https://www.crocus.co.kr/') {
-					this.$el = ''
 				}
 				this.bgImg = Math.floor(Math.random() * 10);
 				if (this.bgImg % 4 == 0) {

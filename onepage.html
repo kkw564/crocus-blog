@@ -1,1190 +1,1109 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko" class="">
 
 <head>
-  <!-- Naver -->
-  <meta name="naver-site-verification" content="55a65b8ea127884a36023fb971b25192715c12c8" />
-  <!-- Google -->
-  <meta name="google-site-verification" content="NmdI0tE24gMymXXGvyqaq5ekwbWfWysXGJai27Cp1zw" />
-  <meta name="google-site-verification" content="NmdI0tE24gMymXXGvyqaq5ekwbWfWysXGJai27Cp1zw" />
-  <meta name="google-site-verification" content="fZ2IOxDG5jyrfrNr_70Nh4PpStZEmfLpypzeA2ccffU" />
-  <meta name="google-site-verification" content="NmdI0tE24gMymXXGvyqaq5ekwbWfWysXGJai27Cp1zw" />
+	<!-- Naver -->
+	<meta name="naver-site-verification" content="55a65b8ea127884a36023fb971b25192715c12c8" />
+	<!-- Google -->
+	<meta name="google-site-verification" content="NmdI0tE24gMymXXGvyqaq5ekwbWfWysXGJai27Cp1zw" />
+	<meta name="google-site-verification" content="NmdI0tE24gMymXXGvyqaq5ekwbWfWysXGJai27Cp1zw" />
+	<meta name="google-site-verification" content="fZ2IOxDG5jyrfrNr_70Nh4PpStZEmfLpypzeA2ccffU" />
+	<meta name="google-site-verification" content="NmdI0tE24gMymXXGvyqaq5ekwbWfWysXGJai27Cp1zw" />
 
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="./images/common.js"></script>
-
-  <!-- color highlighter -->
-  <link href="//fonts.googleapis.com/css?family=Oxygen+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script> -->
-  <script>
-      hljs.initHighlightingOnLoad();
-      /* hljs.initLineNumbersOnLoad();
-      $(document).ready(function() {
-        $('code.hljs').each(function(i, block) {
-          hljs.lineNumbersBlock(block);
-        });
-      });
-      */
-
-      $(document).ready(function () {
-          hljs.configure({tabReplace: '  '});
-          hljs.initHighlighting();
-      });
-  </script>
-  <style>
-    .hljs{
-      font-size:14px !important;
-      border-radius: 15px;
-      line-height: 1.6;
-      font-family: 'Oxygen Mono', monospace;
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="./images/common.js"></script>
+	
+	<!-- color highlighter -->
+	<link href="//fonts.googleapis.com/css?family=Oxygen+Mono&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/agate.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+	<script>
+		hljs.initHighlightingOnLoad();		
+		$(document).ready(function () {
+			hljs.configure({tabReplace: '  '});
+			hljs.initHighlighting();
+		});
+	</script>
+		<style>
+			.hljs{
+				font-size:14px !important;
+				border-radius: 15px;
+				line-height: 1.6;
+				font-family: 'Oxygen Mono', monospace;
+			}
+			pre { 
+				padding: 0px !important;
+				border: 0px !important;
+			}
+    </style>
+	<!-- highlight.js resize tab size -->
+	<!-- Fix for bug in skin -->
+	<script>		
+		if (window.location.href.includes(".com/search/") || window.location.href.includes(".co.kr/search/")) {
+			document.write('<style>.nodisplay-contents{display:none !important;} </style>'); 
+		}
+	</script>
+						
+	<script>		
+		$(document).ready(function () { 
+			if(window.location.href.indexOf(".com/search/") > -1 || window.location.href.indexOf(".co.kr/search/") > -1) {
+				$(".nodisplay-contents").remove()
+			} 
+		});
+	</script>
+	
+	<!-- Make a seperator in menu -->
+		<script>		
+		$(document).ready(function () { 
+			$("a[href$='----------']").css("color","#F15F5F");
+			$("a[href$='----------']").css("cursor","default");
+			$("a[href$='----------']").css("user-select","none");
+			$("a[href$='----------']").css("margin-left","-10px");
+			$("a[href$='----------']").html("──────────");
+			$("a[href$='----------']").removeAttr("href");
+		});
+	</script>
+	<style>
+		#sidebar .category ul li ul li ul li:before {
+     display: none;
     }
-    pre {
-      padding: 0px !important;
-      border: 0px !important;
-    }
-    /*
-    .hljs-line-numbers {
-      text-align: right;
-      border-right: 1px solid #ccc;
-      color: #999;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    */
-  </style>
-  <!-- highlight.js resize tab size -->
-  <!-- Fix for bug in skin -->
-  <script>
-      if (window.location.href.includes(".com/search/") || window.location.href.includes(".co.kr/search/")) {
-          document.write('<style>.nodisplay-contents{display:none !important;} </style>');
-      }
-  </script>
+	</style>
+	<!-- End of seperator script --> 
+	<!-- Highlight Notice menu -->
+		<script>		
+		$(document).ready(function () { 
+			$("a[href$='Notice']").css("color","#F15F5F");
+		});
+	</script>
+	<!-- End of Highlight script --> 
+	<script>
+		if (window.location.pathname == '/341') { document.write('<style>.adsbygoogle{display:none !important;}	#head{display:none;} .tag_label{display:none;} </style>'); }
+		if (window.location.pathname == '/') { document.write('<style>.adsbygoogle{display:none !important;}	.adsbygoogle adsbygoogle-noablate{display:none !important;} #sidebar-toggle{display:none !important;} </style>'); } 
+		if (window.location.pathname == '/') { document.write('<style>.main-on{display:"" !important;} </style>'); } 
+		if(window.location.origin === "https://programbasic.tistory.com") {
+			window.location.href = "https://www.crocus.co.kr" + window.location.pathname
+		}
+	</script>
+	
+	
+	<!-- Google Search Console(Crocus) -->
+	<script>
+		(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  <script>
-      $(document).ready(function () {
-          if(window.location.href.indexOf(".com/search/") > -1 || window.location.href.indexOf(".co.kr/search/") > -1) {
-              $(".nodisplay-contents").remove()
-          }
-      });
-  </script>
+		ga('create', 'UA-75592900-2', 'auto');
+		ga('send', 'pageview');
+	</script>
 
-  <!-- Make a seperator in menu -->
-  <script>
-      $(document).ready(function () {
-          $("a[href$='----------']").css("color","#F15F5F");
-          $("a[href$='----------']").css("cursor","default");
-          $("a[href$='----------']").css("user-select","none");
-          $("a[href$='----------']").css("margin-left","-10px");
-          $("a[href$='----------']").html("──────────");
-          $("a[href$='----------']").removeAttr("href");
-      });
-  </script>
-  <style>
-    #sidebar .category ul li ul li ul li:before {
-      display: none;
-    }
-  </style>
-  <!-- End of seperator script -->
-  <!-- Highlight Notice menu -->
-  <script>
-      $(document).ready(function () {
-          $("a[href$='Notice']").css("color","#F15F5F");
-      });
-  </script>
-  <!-- End of Highlight script -->
-  <script>
-      if (window.location.pathname == '/341') { document.write('<style>.adsbygoogle{display:none !important;}	#head{display:none;} .tag_label{display:none;} </style>'); }
-      if (window.location.pathname == '/') { document.write('<style>.adsbygoogle{display:none !important;}	.adsbygoogle adsbygoogle-noablate{display:none !important;} #sidebar-toggle{display:none !important;} </style>'); }
-      if (window.location.pathname == '/') { document.write('<style>.main-on{display:"" !important;} </style>'); }
-      if(window.location.origin === "https://programbasic.tistory.com") {
-          window.location.href = "https://www.crocus.co.kr" + window.location.pathname
-      }
-  </script>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<link href="./images/Courgette.css" rel="stylesheet">
 
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-5948625237914017",
+			enable_page_level_ads: true
+		});
+	</script>
+	
+	<!-- Google auto advertisement -->
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-5948625237914017", enable_page_level_ads: true }); </script>
+	
+	
+	<title>[##_title_##]</title>
+	<!-- 	원래 <title>[##_page_title_##] :: [##_title_##]</title> -->
+	<meta name="title" content="[##_page_title_##] :: [##_title_##]" />
+	<meta name="description" Content="[##_desc_##]" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"
+	/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-  <!-- Google Search Console(Crocus) -->
-  <script>
-      (function (i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-              (i[r].q = i[r].q || []).push(arguments)
-          }, i[r].l = 1 * new Date(); a = s.createElement(o),
-              m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+	<link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
+	<link rel="shortcut icon" href="[##_blog_link_##]favicon.ico" />
 
-      ga('create', 'UA-75592900-2', 'auto');
-      ga('send', 'pageview');
+	<link rel="stylesheet" href="./style.css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+	<!--[if IE 7]>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css">
+<![endif]-->
+	<link href="./images/jquery.mCustomScrollbar.min.css" rel="stylesheet">
 
-  </script>
+	<script>
+		//추가 단축키
+		var key = new Array();
+		key['a'] = "/admin/"
+		key['w'] = "/admin/entry/post/";
+		key['e'] = "/admin/skin/edit/";
+		key['r'] = "/admin/plugin/refererUrlLog/";
+		key['h'] = "/";
+		key['f'] = "https://programbasic.tistory.com/admin/entry/edit/" + location.pathname.split('/')[1] + "?returnURL=https://www.crocus.co.kr/" + location.pathname.split('/')[1];
 
-  <!-- 반응형 슬라이더 CSS랑 JS  https://flickity.metafizzy.co/-->
-  <link rel="stylesheet" href="https://tistory3.daumcdn.net/tistory/1636210/skin/images/flickity.css">
-  <script src="https://tistory3.daumcdn.net/tistory/1636210/skin/images/flickity.pkgd.min.js"></script>
+		function getKey(keyStroke) {
+			if ((event.srcElement.tagName != 'INPUT') && (event.srcElement.tagName != 'TEXTAREA')) {
+				isNetscape = (document.layers);
+				eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
+				which = String.fromCharCode(eventChooser).toLowerCase();
+				for (var i in key)
+					if (which == i) window.location = key[i];
+			}
+		}
+		document.onkeypress = getKey;
+	</script>
 
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+	<script src="https://unpkg.com/vuex"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 
-  <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <link href="./images/Courgette.css" rel="stylesheet">
-
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-5948625237914017",
-          enable_page_level_ads: true
-      });
-  </script>
-
-  <!-- Google auto advertisement -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-5948625237914017", enable_page_level_ads: true }); </script>
-
-
-  <title>[##_title_##]</title>
-  <!-- 	원래 <title>[##_page_title_##] :: [##_title_##]</title> -->
-  <meta name="title" content="[##_page_title_##] :: [##_title_##]" />
-  <meta name="description" Content="[##_desc_##]" />
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"
-  />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-
-  <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
-  <link rel="shortcut icon" href="[##_blog_link_##]favicon.ico" />
-
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
-  <!--[if IE 7]>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css">
-  <![endif]-->
-  <link href="./images/jquery.mCustomScrollbar.min.css" rel="stylesheet">
-
-  <script>
-      //추가 단축키
-      var key = new Array();
-      key['a'] = "/admin/"
-      key['w'] = "/admin/entry/post/";
-      key['e'] = "/admin/skin/edit/";
-      key['r'] = "/admin/plugin/refererUrlLog/";
-      key['h'] = "/";
-      key['f'] = "https://programbasic.tistory.com/admin/entry/edit/" + location.pathname.split('/')[1] + "?returnURL=https://www.crocus.co.kr/" + location.pathname.split('/')[1];
-
-      function getKey(keyStroke) {
-          if ((event.srcElement.tagName != 'INPUT') && (event.srcElement.tagName != 'TEXTAREA')) {
-              isNetscape = (document.layers);
-              eventChooser = (isNetscape) ? keyStroke.which : event.keyCode;
-              which = String.fromCharCode(eventChooser).toLowerCase();
-              for (var i in key)
-                  if (which == i) window.location = key[i];
-          }
-      }
-      document.onkeypress = getKey;
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/vuex"></script>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
-
-  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <!-- stats.js lib -->
-  <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+	<!-- stats.js lib -->
+	<script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
 </head>
 
 <style scoped>
-  /* ---- reset ---- */
-  @media only all and (max-width: 740px) {
-    #search-box {
-      width: 80% !important;
-    }
+	/* ---- reset ---- */
+	@media only all and (max-width: 740px) {
+		#search-box {
+			width: 80% !important;
+		}
+		#search-text {
+			font-size: 16px !important;
+		}
+	}
 
-  }
+	@font-face {
+		font-family: 'Baemin Hanna'; 
+		src: url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot');
+		src: local('Baemin Hanna'),
+			url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot?'),
+			url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.ttf') format('truetype');
+	}
 
-  @font-face {
-    font-family: 'Baemin Hanna';
-    src: url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot');
-    src: local('Baemin Hanna'),
-    url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.eot?'),
-    url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/baemin.ttf') format('truetype');
-  }
+	canvas {
+		display: block;
+		vertical-align: bottom;
+	}
+	.main-on{
+		display: none !important;
+	}
+	#geeye-img {
+		background-image: url(https://tistory2.daumcdn.net/tistory/1636210/skin/images/geeye.jpg);
+		height: 80vh;
+		background-position: top;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	#geeye-text{
+		height: 5vh;
+		text-align: center;
+		font-family: 'Baemin Hanna';
+		font-size: 30px;
+		margin-top: 5vh;
+	}
+	#geeye-day{
+		height: 7vh;
+		text-align: center;
+		font-family: 'Baemin Hanna';
+		font-size: 20px;
+		margin-top: 3vh;
+	}
+	
+	.fit-fog {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
 
-  .fit-fog {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  canvas {
-    display: block;
-    vertical-align: bottom;
-  }
-  .main-on{
-    display: none !important;
-  }
-  #geeye-img {
-    background-image: url(https://tistory2.daumcdn.net/tistory/1636210/skin/images/geeye.jpg);
-    height: 80vh;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  #geeye-text{
-    height: 5vh;
-    text-align: center;
-    font-family: 'Baemin Hanna';
-    font-size: 30px;
-    margin-top: 5vh;
-  }
-  #geeye-day{
-    height: 7vh;
-    text-align: center;
-    font-family: 'Baemin Hanna';
-    font-size: 20px;
-    margin-top: 3vh;
-  }
-  /* ---- particles.js container ---- */
-  #particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-  }
-  #particles-js2 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-  }
-  #particles-js3 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry3.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-  }
-  #particles-js4 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
-    background-image: url("https://tistory1.daumcdn.net/tistory/1636210/skin/images/starry4.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-  }
+	.console-container {
+		font-family: 'Courgette', cursive;
+		line-height: 150%;
+		font-size: 35px;
+		color: white;
+		user-select: none;
+		position: absolute;
+		top: 35%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		text-align: center;
+		padding-bottom:30px;
+	}
+	.hidden {
+		opacity: 0;
+	}
 
-  .console-container {
-    font-family: 'Courgette', cursive;
-    line-height: 150%;
-    font-size: 35px;
-    color: white;
-    user-select: none;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-    padding-bottom:30px;
-  }
-  .hidden {
-    opacity: 0;
-  }
+	.console-underscore {
+		display: inline-block;
+		color: tomato;
+		position: relative;
+		top: -0.14em;
+		left: -8px;
+	}
 
-  .console-underscore {
-    display: inline-block;
-    color: tomato;
-    position: relative;
-    top: -0.14em;
-    left: -8px;
-  }
+	#keyword-content {
+		font-size: 18px;
+		color: white;
+		user-select: none;
+		position: absolute;
+		top: 60%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		text-align: center;
+		margin-top:30px;
+	}
 
-  #keyword-content {
-    font-size: 18px;
-    color: white;
-    user-select: none;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    text-align: center;
-    margin-top:30px;
-  }
+	#ticker a {
+		color: #FFF;
+		text-decoration: none;
+	}
 
-  #ticker a {
-    color: #FFF;
-    text-decoration: none;
-  }
+	#rank-list a:hover {
+		text-decoration: underline;
+	}
+	#ticker-topic {
+		font-size: 15px;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+	#ticker {
+		overflow: hidden;
+		width: 100%;
+		height: 20px;
+		margin: 0;
+		text-align: center;
+	}
 
-  #rank-list a:hover {
-    text-decoration: underline;
-  }
-  #ticker-topic {
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  #ticker {
-    overflow: hidden;
-    width: 100%;
-    height: 20px;
-    margin: 0;
-    text-align: center;
-  }
+	#ticker dt {
+		display: none;
+	}
 
-  #ticker dt {
-    display: none;
-  }
+	#ticker dd {
+		position: relative;
+		margin: 0;
+	}
 
-  #ticker dd {
-    position: relative;
-    margin: 0;
-  }
-
-  #ticker ol {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  #ticker li {
-    height: 20px;
-    line-height: 20px;
-  }
-  #search-box {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    text-align: center;
-    position: absolute;
-  }
-  #search-text {
-    border-radius: 50px;
-    width: 100%;
-    height: 42px;
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    padding: 0 10px;
-    color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* width: 100%; */
-    text-align: center;
-    position: absolute;
-    font-size: 20px;
-  }
-  #search-text:focus {
-    background-color: #f5f4f3;
-    color: black;
-  }
-  #search-img {
-    width: 40px;
-    height: 40px;
-    float: right;
-  }
+	#ticker ol {
+		position: relative;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	}
+	#ticker li {
+		height: 20px;
+		line-height: 20px;
+	}
+	#search-box {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 60%;
+		text-align: center;
+		position: absolute;
+	}
+	#search-text {
+		border-radius: 50px;
+		width: 100%;
+		height: 42px;
+		background: rgba(255, 255, 255, 0.5);
+		border: none;
+		padding: 0 10px;
+		color: white;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		/* width: 100%; */
+		text-align: center;
+		position: absolute;
+		font-size: 20px;
+	}
+	#search-text:focus {
+		background-color: #f5f4f3;
+		color: black;
+	}
+	#search-img {
+		width: 40px;
+		height: 40px;
+		float: right;
+	}
 </style>
 
-
+	
 <!-- FULL SCREEN POPUP CSS / JS -->
-<link href="//fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
-<style>
-  /*
-    @font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
-  */
-  @media screen and (max-width: 740px) {
-    .overlay-a {
-      font-size:25px !important;
-    }
-    .donation-content{
-      font-size: 14px !important;
-      margin: 0 40px 0 40px !important;
-      word-break: break-all !important;
-    }
-    .overlay .closebtn {
-      font-size: 40px !important;
-    }
-    .donation-content-link{
-      font-size: 14px !important;
-    }
-    .qrcode-content {
-      width: 90px;
-      height: 90px;
-    }
-  }
-  @font-face {
-    font-family: 'jalnan';
-    src: url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/JalnanOTF.eot');
-    src: local('jalnan'),
-    url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/Jalnan.ttf') format('truetype');
-  }
-  .overlay {
-    height: 0%;
-    width: 100%;
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    left: 0;
-    background-color: rgb(249,249,249);
-    background-color: rgba(249,249,249, 1);
-    font-family: 'Comfortaa', cursive, serif;
-    overflow-y: auto;
-    transition: 0.5s;
-  }
+	<link href="//fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+	<style>
+		/*
+			@font-face { font-family: 'yg-jalnan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff'); font-weight: normal; font-style: normal; }
+		*/
+		@media screen and (max-width: 740px) {
+			.overlay-a {
+				font-size:25px !important;
+			}
+			.donation-content{
+				font-size: 14px !important;
+				margin: 0 40px 0 40px !important;
+				word-break: break-all !important;
+			}
+			.overlay .closebtn {
+				font-size: 40px !important;
+			}
+			.donation-content-link{
+				font-size: 14px !important;
+			}
+			.qrcode-content {
+				width: 90px;
+				height: 90px;
+			}
+		}
+		@font-face {
+			font-family: 'jalnan'; 
+			src: url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/JalnanOTF.eot');
+			src: local('jalnan'),
+				url('https://tistory2.daumcdn.net/tistory/1636210/skin/images/Jalnan.ttf') format('truetype');
+		}
+		.overlay {
+			height: 0%;
+			width: 100%;
+			position: fixed;
+			z-index: 99999;
+			top: 0;
+			left: 0;
+			background-color: rgb(249,249,249);
+			background-color: rgba(249,249,249, 1);
+    	font-family: 'Comfortaa', cursive, serif;
+			overflow-y: auto;
+			transition: 0.5s;
+		}
 
-  .overlay-content {
-    position: relative;
-    /* top: 25%; */
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-  }
+		.overlay-content {
+			position: relative;
+			/* top: 25%; */
+			width: 100%;
+			text-align: center;
+			margin-top: 10px;
+		}
 
-  .overlay-a {
-    padding: 35px 0 30px 0;
-    text-decoration: none;
-    font-size: 50px;
-    font-weight: bold;
-    font-family: 'Comfortaa', cursive, serif;
-    color: #818CA3;
-    display: block;
-    transition: 0.3s;
-  }
+		.overlay-a {
+			padding: 35px 0 30px 0;
+			text-decoration: none;
+			font-size: 50px;
+    	font-weight: bold;
+    	font-family: 'Comfortaa', cursive, serif;
+			color: #818CA3;
+			display: block;
+			transition: 0.3s;
+		}
 
-  .overlay a:hover {
-    color: #E77676;
-  }
+		.overlay a:hover {
+			color: #E77676;
+		}
 
-  .overlay .closebtn {
-    display: block;
-    position: absolute;
-    top: 25px;
-    right: 35px;
-    font-size: 60px;
-    z-index: 99999;
-    padding: 20px;
-  }
+		.overlay .closebtn {
+			display: block;
+			position: absolute;
+			top: 25px;
+			right: 35px;
+			font-size: 60px;
+			z-index: 99999;
+			padding: 20px;
+		}
+		
+		.color-important{
+			color: #E77676 !important;
+		}
+		
+		.title-margin{
+			margin: 50px 0 15px 0;
+		}
+		
+		.donation-content{
+			font-family: 'jalnan' !important;
+			line-height: 50px;
+			font-size: 18px;
+		}
+		.donation-content-link{
+			font-family: 'jalnan' !important;
+			line-height: 50px;
+			font-size: 18px;
+		}
+		@media screen and (max-height: 450px) {
+			.overlay {overflow-y: auto;}
+			.overlay a {font-size: 20px}
+			.overlay .closebtn {
+				font-size: 40px;
+				top: 15px;
+				right: 35px;
+			}
+			
+		}
+	</style>
 
-  .color-important{
-    color: #E77676 !important;
-  }
+	<script>
+		function openNav() {
+			document.getElementById("myNav").style.height = "100%";
+			//document.body.style['overflow-y'] = 'hidden';
+			//document.body.style.overflowY = "hidden";
+			document.getElementsByTagName('html')[0].style.overflowY = "hidden";
+		}
 
-  .title-margin{
-    margin: 50px 0 15px 0;
-  }
-
-  .donation-content{
-    font-family: 'jalnan' !important;
-    line-height: 50px;
-    font-size: 18px;
-  }
-  .donation-content-link{
-    font-family: 'jalnan' !important;
-    line-height: 50px;
-    font-size: 18px;
-  }
-  @media screen and (max-height: 450px) {
-    .overlay {overflow-y: auto;}
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
-    }
-
-  }
-</style>
-
-<script>
-    function openNav() {
-        document.getElementById("myNav").style.height = "100%";
-        //document.body.style['overflow-y'] = 'hidden';
-        //document.body.style.overflowY = "hidden";
-        document.getElementsByTagName('html')[0].style.overflowY = "hidden";
-    }
-
-    function closeNav() {
-        document.getElementById("myNav").style.height = "0%";
-        //document.body.style.overflowY = "hidden";
-        document.getElementsByTagName('html')[0].style.overflowY = "auto";
-    }
-</script>
-
-
+		function closeNav() {
+			document.getElementById("myNav").style.height = "0%";
+			//document.body.style.overflowY = "hidden";
+			document.getElementsByTagName('html')[0].style.overflowY = "auto";
+		}
+	</script>
+	
+	
 <!-- tiny box 팝업 -->
 <script language="JavaScript" src="https://tistory1.daumcdn.net/tistory/1636210/skin/images/tinybox.js"></script>
 <!-- &#44172;&#49884;&#54032; iframe &#51060;&#50857; js -->
 <link rel="StyleSheet" href="https://tistory1.daumcdn.net/tistory/1636210/skin/images/style_tinybox_ex.css" type="text/css"><!-- &#44172;&#49884;&#54032; iframe &#51060;&#50857; css -->
 
 <body id="[##_body_id_##]">
-<div id="mainPage">
-  <template class="main-on" v-if="isMain">
-    <div v-if="geeye">
-      <div id="geeye-img"></div>
-      <div id="geeye-text"></div>
-      <div id="geeye-day"></div>
-    </div>
-    <div v-else id="background-fog" class="fit-fog">
-      <div class='console-container'>
-        <span id='text' @click="goBlog"></span>
-        <div class='console-underscore' id='console' @click="goBlog">_</div>
-      </div>
+	<div id="mainPage">
+		<template class="main-on" v-if="isMain">
+			<div v-if="geeye">
+				<div id="geeye-img"></div>
+				<div id="geeye-text"></div>
+				<div id="geeye-day"></div>
+			</div>
+			<div v-else id="background-fog" class="fit-fog">
+				<div class='console-container'>
+					<span id='text' @click="goBlog"></span>
+					<div class='console-underscore' id='console' @click="goBlog">_</div>
+				</div>
+				
+				<div id="keyword-content">
+					<div id="ticker-topic">
+						{{ keywordName }}
+					</div>
+					<dl id="ticker">
+						<dd>
+							<ol>
+								<li v-if="keyword % 3 == 0" v-for="i in keywordRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 1" v-for="i in keywordInnerRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+								<li v-if="keyword % 3 == 2" v-for="i in keywordOuterRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
+							</ol>
+						</dd>
+					</dl>
+				</div>
+				
+				<div id="search-box">
+					<input id="search-text" v-model="currentText" @keyup.enter="goSearch">
+				</div>
+			</div>
+		</template>
+		<s_t3>
+			<div v-if="!isMain">
+				<div id="wrap">
+					<!-- FULL SCREEN POPUP -->
+					<div id="myNav" class="overlay">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<div class="overlay-content">
+							<a href="#" class="title-margin overlay-a">Crocus</a>
+							<div class="donation-content">
+								공부한 내용을 정리하는 블로그로 시작한<br>
+								Crocus는 2014년 1월 14일 부터 시작하여<br>
+								현재 월 <span class="color-important">6만명</span>, 총 <span class="color-important">[##_count_total_##]명</span>의 방문자 수를 기록하고 있습니다.<br>
+							</div>
+							<a href="#" class="title-margin overlay-a">Donation</a>
+							<div class="donation-content">
+								이제 많은 사용자들이 이용하는 만큼<br>
+								더 다양한 서비스 개발/제공을 위해 후원금을 모금하고자 합니다.<br>
+								후원을 해주시는 분들은 Donators 명단에 성명, 후원금을 기입해드리며<br>
+								Crocus 블로그가 아닌 다른 곳에 정리해둔 저만의 내용을 공유해 드리고자 합니다.<br>
+							</div>
+							<a href="#" class="title-margin overlay-a">Account</a>
+							<div class="donation-content">
+								예금주 : 고관우<br>
+								신한은행 : 110-334-866541<br>
+								카카오뱅크 : 3333-01-7888060<br>
+								<img src="https://tistory2.daumcdn.net/tistory/1636210/skin/images/crocus_kakao_qr.png" class="qrcode-content" width="128px" height="128px"><br>
+							</div>
+								<a href="https://www.crocus.co.kr/guestbook" class="donation-content-link color-important" target="_blank">👉 후원 페이지 바로가기</a>
+							<a href="https://www.crocus.co.kr/guestbook" class="title-margin overlay-a" target="_blank">Donators</a>
+							<div class="donation-content">
+								익명 : 5000원(Crocus응원합니다.)
+							</div>
+							<!--<a href="#" onClick="closeNav()" class="title-margin">CLOSE</a>-->
+						</div>
+					</div>
+					
+					<div id="sidebar">
+						<br><br>
+						<h1><a href="https://www.crocus.co.kr/341">Crocus</a></h1>
+						<br><br><br>
+						<div style="width:100%; margin:0 auto;">
+							<div onclick="TINY.box.show({image:'https://tistory1.daumcdn.net/tistory/1636210/skin/images/Algomization%20%EA%B4%91%EA%B3%A0.jpg',boxid:'frameless',width:430,height:250,animate:true,openjs:function(){openJS()}})">　　　　　알고리즘
+								스터디 모집(Click)</div>
+						</div>
+						<!--원래 위에	<h1><a href="[##_blog_link_##]">[##_title_##]</a></h1>  -->
+						<s_sidebar_element>
+							<!-- Counter -->
+							<div class="widget counter text-center">
+								<span class="yesterday">[##_count_yesterday_##]</span> /
+								<span class="today">[##_count_today_##]</span> /
+								<span class="total">[##_count_total_##]</span>
+							</div>
+						</s_sidebar_element>
 
-      <div id="keyword-content">
-        <div id="ticker-topic">
-          {{ keywordName }}
-        </div>
-        <dl id="ticker">
-          <dd>
-            <ol>
-              <li v-if="keyword % 3 == 0" v-for="i in keywordRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
-              <li v-if="keyword % 3 == 1" v-for="i in keywordInnerRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
-              <li v-if="keyword % 3 == 2" v-for="i in keywordOuterRankList"><a :href="'https://www.crocus.co.kr/search/'+i">{{ i }}</a></li>
-            </ol>
-          </dd>
-        </dl>
-      </div>
+						<s_sidebar_element>
+							<!-- Search -->
+							<div class="widget search text-center">
+								<s_search>
+									<input class="search" placeholder="press enter to search…" type="text" name="[##_search_name_##]" value="[##_search_text_##]"
+									 onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }" />
+								</s_search>
+							</div>
+						</s_sidebar_element>
 
-      <div id="search-box">
-        <input id="search-text" v-model="currentText" @keyup.enter="goSearch">
-      </div>
-    </div>
-  </template>
-  <s_t3>
-    <div v-if="!isMain">
-      <div id="wrap">
-        <!-- FULL SCREEN POPUP -->
-        <div id="myNav" class="overlay">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <div class="overlay-content">
-            <a href="#" class="title-margin overlay-a">Crocus</a>
-            <div class="donation-content">
-              공부한 내용을 정리하는 블로그로 시작한<br>
-              Crocus는 2014년 1월 14일 부터 시작하여<br>
-              현재 월 <span class="color-important">6만명</span>, 총 <span class="color-important">[##_count_total_##]명</span>의 방문자 수를 기록하고 있습니다.<br>
-            </div>
-            <a href="#" class="title-margin overlay-a">Donation</a>
-            <div class="donation-content">
-              이제 많은 사용자들이 이용하는 만큼<br>
-              더 다양한 서비스 개발/제공을 위해 후원금을 모금하고자 합니다.<br>
-              후원을 해주시는 분들은 Donators 명단에 성명, 후원금을 기입해드리며<br>
-              Crocus 블로그가 아닌 다른 곳에 정리해둔 저만의 내용을 공유해 드리고자 합니다.<br>
-            </div>
-            <a href="#" class="title-margin overlay-a">Account</a>
-            <div class="donation-content">
-              예금주 : 고관우<br>
-              신한은행 : 110-334-866541<br>
-              카카오뱅크 : 3333-01-7888060<br>
-              <img src="https://tistory2.daumcdn.net/tistory/1636210/skin/images/crocus_kakao_qr.png" class="qrcode-content" width="128px" height="128px"><br>
-            </div>
-            <a href="https://www.crocus.co.kr/guestbook" class="donation-content-link color-important" target="_blank">👉 후원 페이지 바로가기</a>
-            <a href="https://www.crocus.co.kr/guestbook" class="title-margin overlay-a" target="_blank">Donators</a>
-            <div class="donation-content">
-              익명 : 5000원(Crocus응원합니다.)
-            </div>
-            <!--<a href="#" onClick="closeNav()" class="title-margin">CLOSE</a>-->
-          </div>
-        </div>
+						
+						<!-- DONATION BUTTON -->
+						<div class="donation-container">
+							<div class="donation-btn" onclick="openNav()">Donation</div>
+						</div>
+						
+						
+						<s_sidebar>
+							<s_sidebar_element>
+								<div class="widget category">
+									<!-- Category -->
+									[##_category_list_##]
+								</div>
+							</s_sidebar_element>
 
-        <div id="sidebar">
-          <br><br>
-          <h1><a href="https://www.crocus.co.kr/341">Crocus</a></h1>
-          <br><br><br>
-          <div style="width:100%; margin:0 auto;">
-            <div onclick="TINY.box.show({image:'https://tistory1.daumcdn.net/tistory/1636210/skin/images/Algomization%20%EA%B4%91%EA%B3%A0.jpg',boxid:'frameless',width:430,height:250,animate:true,openjs:function(){openJS()}})">　　　　　알고리즘
-              스터디 모집(Click)</div>
-          </div>
-          <!--원래 위에	<h1><a href="[##_blog_link_##]">[##_title_##]</a></h1>  -->
-          <s_sidebar_element>
-            <!-- Counter -->
-            <div class="widget counter text-center">
-              <span class="yesterday">[##_count_yesterday_##]</span> /
-              <span class="today">[##_count_today_##]</span> /
-              <span class="total">[##_count_total_##]</span>
-            </div>
-          </s_sidebar_element>
+							<s_sidebar_element>
+							<!--Blog Menu
+							<div class="widget"> 
+								[##_blog_menu_##]
+							</div>-->
+							</s_sidebar_element>
 
-          <s_sidebar_element>
-            <!-- Search -->
-            <div class="widget search text-center">
-              <s_search>
-                <input class="search" placeholder="press enter to search…" type="text" name="[##_search_name_##]" value="[##_search_text_##]"
-                       onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }" />
-              </s_search>
-            </div>
-          </s_sidebar_element>
+							<s_sidebar_element>
+								<!-- Notice -->
+								<s_rct_notice>
+									<div class="widget">
+										<ul>
+											<s_rct_notice_rep>
+												<li><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></li>
+											</s_rct_notice_rep>
+										</ul>
+									</div>
+								</s_rct_notice>
+							</s_sidebar_element>
 
+							<s_sidebar_element>
+								<!-- Recent Comments		<div class="widget"> 
+									<ul id="recentComments">
+										<s_rctrp_rep><li><a href="[##_rctrp_rep_link_##]" title="[##_rctrp_rep_name_##]〃[##_rctrp_rep_time_##]">[##_rctrp_rep_desc_##]</a></li></s_rctrp_rep>
+									</ul>
+								</div>-->
+							</s_sidebar_element>
 
-          <!-- DONATION BUTTON -->
-          <div class="donation-container">
-            <div class="donation-btn" onclick="openNav()">Donation</div>
-          </div>
+							<s_sidebar_element>
+								<!-- Links -->
+							</s_sidebar_element>
+							<!-- 원래 여기 counter search있었음 -->
+						</s_sidebar>
+						<div class="blank"></div>
+					</div>
 
+					<div id="content">
+						<div id="content-inner">
+							<s_tag>
+								<div id="head">
+									<h2>Tag</h2>
+								</div>
 
-          <s_sidebar>
-            <s_sidebar_element>
-              <div class="widget category">
-                <!-- Category -->
-                [##_category_list_##]
-              </div>
-            </s_sidebar_element>
+								<div id="body" class="tag">
+									<s_tag_rep><a href="[##_tag_link_##]" class="[##_tag_class_##]">#[##_tag_name_##]</a></s_tag_rep>
+								</div>
+							</s_tag>
 
-            <s_sidebar_element>
-              <!--Blog Menu
-              <div class="widget">
-                [##_blog_menu_##]
-              </div>-->
-            </s_sidebar_element>
+							<s_local>
+								<div id="head">
+									<h2>Local</h2>
+								</div>
 
-            <s_sidebar_element>
-              <!-- Notice -->
-              <s_rct_notice>
-                <div class="widget">
-                  <ul>
-                    <s_rct_notice_rep>
-                      <li><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></li>
-                    </s_rct_notice_rep>
-                  </ul>
-                </div>
-              </s_rct_notice>
-            </s_sidebar_element>
+								<div id="body" class="local">
+									<s_local_spot_rep>
+										<div class="spot" style="margin-left: [##_local_spot_depth_##]px">[##_local_spot_##]</div>
+									</s_local_spot_rep>
+									<s_local_info_rep>
+										<div class="info" style="margin-left: [##_local_info_depth_##]px"><a href="[##_local_info_link_##]">[##_local_info_title_##]</a></div>
+									</s_local_info_rep>
+								</div>
+							</s_local>
 
-            <s_sidebar_element>
-              <!-- Recent Comments		<div class="widget">
-                <ul id="recentComments">
-                  <s_rctrp_rep><li><a href="[##_rctrp_rep_link_##]" title="[##_rctrp_rep_name_##]〃[##_rctrp_rep_time_##]">[##_rctrp_rep_desc_##]</a></li></s_rctrp_rep>
-                </ul>
-              </div>-->
-            </s_sidebar_element>
+							<s_list>
+								<!--ㅇㅇ 여기있는거 다뺌-->
+								<!-- 여기서부터 지우는거 해보면 알 듯 -->
+								<div id="head">
+									<h2>[##_list_conform_##]</h2>
+								</div>
 
-            <s_sidebar_element>
-              <!-- Links -->
-            </s_sidebar_element>
-            <!-- 원래 여기 counter search있었음 -->
-          </s_sidebar>
-          <div class="blank"></div>
-        </div>
+								<div id="body" class="list">
+									<ul>
+										<s_list_rep>
+											<li>
+												<a href="[##_list_rep_link_##]">[##_list_rep_title_##]</a>
+												<span class="date">[##_list_rep_regdate_##]</span>
+												<span class="cnt">[##_list_rep_rp_cnt_##]</span>
+												<div class="clear"></div>
+											</li>
+										</s_list_rep>
+									</ul>
+								</div>
+							</s_list>
+			
+	
+							<s_notice_rep>
+								<div id="head">
+									<h2><a href="[##_article_rep_link_##]">[##_notice_rep_title_##]</a></h2>
+									<div class="date">[##_notice_rep_date_##]</div>
+								</div>
 
-        <div id="content">
-          <div id="content-inner">
-            <s_tag>
-              <div id="head">
-                <h2>Tag</h2>
-              </div>
+								<div id="body" class="entry">
+									<div class="tag_label">
+										<s_tag_label>
+											<span>[##_tag_label_rep_##]</span>
+											<div class="clear"></div>
+										</s_tag_label>
+									</div>
 
-              <div id="body" class="tag">
-                <s_tag_rep><a href="[##_tag_link_##]" class="[##_tag_class_##]">#[##_tag_name_##]</a></s_tag_rep>
-              </div>
-            </s_tag>
+									<div class="article">
+										[##_notice_rep_desc_##]
+									</div>
+								</div>
+							</s_notice_rep>
+							<s_article_protected>
+								<div id="head">
+									<h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+									<div class="date">[##_article_rep_date_##]</div>
+								</div>
 
-            <s_local>
-              <div id="head">
-                <h2>Local</h2>
-              </div>
+								<div id="body" class="entry protected">
+									<p><i class="icon-unlock-alt"></i></p>
+									<p><input type="password" maxlength="30" id="[##_article_password_##]" name="[##_article_password_##]" value=""
+										 onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]" /></p>
+									<p><input type="button" class="submit" value="Unlock" onclick="[##_article_dissolve_##]" /></p>
+								</div>
+							</s_article_protected>
 
-              <div id="body" class="local">
-                <s_local_spot_rep>
-                  <div class="spot" style="margin-left: [##_local_spot_depth_##]px">[##_local_spot_##]</div>
-                </s_local_spot_rep>
-                <s_local_info_rep>
-                  <div class="info" style="margin-left: [##_local_info_depth_##]px"><a href="[##_local_info_link_##]">[##_local_info_title_##]</a></div>
-                </s_local_info_rep>
-              </div>
-            </s_local>
+							<div class="nodisplay-contents">
+			
+								<s_article_rep>
+									<div id="head">
+										<h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+										<div class="date">[##_article_rep_date_##]</div>
+									</div>
 
-            <s_list>
-              <!--ㅇㅇ 여기있는거 다뺌-->
-              <!-- 여기서부터 지우는거 해보면 알 듯 -->
-              <div id="head">
-                <h2>[##_list_conform_##]</h2>
-              </div>
+									<div id="body" class="entry">
+										<div class="tag_label">
+											<s_tag_label>
+												<span>[##_tag_label_rep_##]</span>
+												<div class="clear"></div>
+											</s_tag_label>
+										</div>
 
-              <div id="body" class="list">
-                <ul>
-                  <s_list_rep>
-                    <li>
-                      <a href="[##_list_rep_link_##]">[##_list_rep_title_##]</a>
-                      <span class="date">[##_list_rep_regdate_##]</span>
-                      <span class="cnt">[##_list_rep_rp_cnt_##]</span>
-                      <div class="clear"></div>
-                    </li>
-                  </s_list_rep>
-                </ul>
-              </div>
-            </s_list>
+										<div class="article">
+											<!-- 데이블 div -->
+											<div itemprop="articleBody">
+												[##_article_rep_desc_##]
+											</div>
+										</div>
 
+										<s_ad_div>
+											<div class="admin">
+												<a href="[##_s_ad_m_link_##]">Modify</a>
+												<span class="line">|</span>
+												<a href="#" onclick="[##_s_ad_d_onclick_##]">Delete</a>
+											</div>
+										</s_ad_div>
 
-            <s_notice_rep>
-              <div id="head">
-                <h2><a href="[##_article_rep_link_##]">[##_notice_rep_title_##]</a></h2>
-                <div class="date">[##_notice_rep_date_##]</div>
-              </div>
+										<s_rp>
+											<div id="communicate">
+												<s_rp_input_form>
+													<div class="communicateWrite">
+														<s_rp_member>
+															<s_rp_guest>
+																<div class="name guest">
+																	<label for="name">NAME</label>
+																	<input id="name" type="text" name="[##_rp_input_name_##]" value="[##_guest_name_##]" />
+																</div>
+																<div class="password guest">
+																	<label for="password">PASSWORD</label>
+																	<input id="password" type="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]" />
+																</div>
+																<div class="homepage guest">
+																	<label for="homepage">HOMEPAGE</label>
+																	<input id="homepage" type="text" name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]" />
+																</div>
+															</s_rp_guest>
+														</s_rp_member>
+														<div class="textarea"><textarea name="[##_rp_input_comment_##]" rows="10" cols="50"></textarea></div>
+														<div class="submit"><input type="submit" value="WRITE" onclick="[##_rp_onclick_submit_##]" /></div>
+														<div class="secret">
+															<label for="secret">SECRET</label>
+															<input id="secret" type="checkbox" name="[##_rp_input_is_secret_##]" />
+														</div>
+														<div class="clear"></div>
+													</div>
+												</s_rp_input_form>
 
-              <div id="body" class="entry">
-                <div class="tag_label">
-                  <s_tag_label>
-                    <span>[##_tag_label_rep_##]</span>
-                    <div class="clear"></div>
-                  </s_tag_label>
-                </div>
+												<s_rp_container>
+													<div class="communicateList">
+														<ol>
+															<s_rp_rep>
+																<li id='[##_rp_rep_id_##]'>
+																	<div class="[##_rp_rep_class_##]">
+																		<div class="info">
+																			<span class="name">[##_rp_rep_name_##]</span>
+																			<span class="date">[##_rp_rep_date_##]</span>
+																		</div>
+																		<div class="clear"></div>
+																		<p>[##_rp_rep_desc_##]</p>
+																		<div class="control">
+																			<a href="[##_rp_rep_link_##]" class="url">#</a>
+																			<a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
+																			<a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="write">Reply</a>
+																			<div class="clear"></div>
+																		</div>
+																	</div>
+																	<s_rp2_container>
+																		<ul>
+																			<s_rp2_rep>
+																				<li id='[##_rp_rep_id_##]'>
+																					<div class="[##_rp_rep_class_##]">
+																						<div class="info">
+																							<span class="name">[##_rp_rep_name_##]</span>
+																							<span class="date">[##_rp_rep_date_##]</span>
+																						</div>
+																						<div class="clear"></div>
+																						<p>[##_rp_rep_desc_##]</p>
+																						<div class="control">
+																							<a href="[##_rp_rep_link_##]" class="url">#</a>
+																							<a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
+																						</div>
+																					</div>
+																				</li>
+																			</s_rp2_rep>
+																		</ul>
+																	</s_rp2_container>
+																</li>
+															</s_rp_rep>
+														</ol>
+													</div>
+												</s_rp_container>
+											</div>
+										</s_rp>
+									</div>
+								</s_article_rep>
+							</div>
+							<s_guest>
+								<div id="head">
+									<h2>Thanks To Donate For Crocus!</h2>
+								</div>
 
-                <div class="article">
-                  [##_notice_rep_desc_##]
-                </div>
-              </div>
-            </s_notice_rep>
-            <s_article_protected>
-              <div id="head">
-                <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
-                <div class="date">[##_article_rep_date_##]</div>
-              </div>
+								<div id="body" class="entry">
+									<div id="communicate">
+										<s_guest_input_form>
+											<div class="communicateWrite">
+												<s_guest_member>
+													<s_guest_form>
+														<div class="name guest no-margin">
+															<label for="name">Donator Name</label>
+															<input id="name" type="text" name="[##_guest_input_name_##]" value="[##_guest_name_##]" />
+														</div>
+														<div class="password guest">
+															<label for="password">PASSWORD</label>
+															<input id="password" type="password" maxlength="8" name="[##_guest_input_password_##]" value="[##_guest_password_##]" />
+														</div>
+												<!-- <div class="homepage guest">
+															<label for="homepage">HOMEPAGE</label>
+															<input id="homepage" type="text" name="[##_guest_input_homepage_##]" value="[##_guest_homepage_##]" /> 
+														</div> -->
+													</s_guest_form>
+												</s_guest_member>
+												<div class="textarea"><textarea name="[##_guest_textarea_body_##]" cols="50" rows="6" placeholder="성명(닉네임) &#10;블로그 이외의 정리해둔 공부 자료를 원하신다면 이메일 혹은 카카오톡 id를 적어주세요.(비공개로 적어주세요)"></textarea></div>
+												<div class="submit"><input type="submit" value="WRITE" onclick="[##_guest_onclick_submit_##]"/></div>
+												<div class="secret">
+													<label for="guestsecret">SECRET</label>
+													<input id="guestsecret" type="checkbox" name="secret" />
+												</div>
+												<div class="clear"></div>
+											</div>
+										</s_guest_input_form>
 
-              <div id="body" class="entry protected">
-                <p><i class="icon-unlock-alt"></i></p>
-                <p><input type="password" maxlength="30" id="[##_article_password_##]" name="[##_article_password_##]" value=""
-                          onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]" /></p>
-                <p><input type="button" class="submit" value="Unlock" onclick="[##_article_dissolve_##]" /></p>
-              </div>
-            </s_article_protected>
+										<s_guest_container>
+											<div class="communicateList">
+												<ol>
+													<s_guest_rep>
+														<li id='[##_guest_rep_id_##]'>
+															<div class="[##_guest_rep_class_##]">
+																<div class="info">
+																	<span class="name">[##_guest_rep_name_##]</span>
+																	<span class="date">[##_guest_rep_date_##]</span>
+																</div>
+																<div class="clear"></div>
+																<p>[##_guest_rep_desc_##]</p>
+																<div class="control">
+																	<a href="#[##_guest_rep_id_##]" class="url">#</a>
+																	<a href="#" onclick="[##_guest_rep_onclick_delete_##]">Delete</a>
+																	<a href="#" onclick="[##_guest_rep_onclick_reply_##]">Reply</a>
+																</div>
+															</div>
+															<s_guest_reply_container>
+																<ul>
+																	<s_guest_reply_rep>
+																		<li id='[##_guest_rep_id_##]'>
+																			<div class="[##_guest_rep_class_##]">
+																				<div class="info">
+																					<span class="name">[##_guest_rep_name_##]</span>
+																					<span class="date">[##_guest_rep_date_##]</span>
+																				</div>
+																				<div class="clear"></div>
+																				<p>[##_guest_rep_desc_##]</p>
+																				<div class="control">
+																					<a href="#[##_guest_rep_id_##]" class="url">#</a>
+																					<a href="#" onclick="[##_guest_rep_onclick_delete_##]">Delete</a>
+																				</div>
+																			</div>
+																		</li>
+																	</s_guest_reply_rep>
+																</ul>
+															</s_guest_reply_container>
+														</li>
+													</s_guest_rep>
+												</ol>
+											</div>
+										</s_guest_container>
+									</div>
+								</div>
+							</s_guest>
 
-            <div class="nodisplay-contents">
+							<div id="paging">
+								<s_paging>
+									<a [##_prev_page_##] class="prev [##_no_more_prev_##]">PREV</a>
+									<s_paging_rep><a class="numbox" [##_paging_rep_link_##]>[##_paging_rep_link_num_##]</a></s_paging_rep>
+									<a [##_next_page_##] class="next [##_no_more_next_##]">NEXT</a>
+								</s_paging>
+							</div>
 
-              <s_article_rep>
-                <div id="head">
-                  <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
-                  <div class="date">[##_article_rep_date_##]</div>
-                </div>
-
-                <div id="body" class="entry">
-                  <div class="tag_label">
-                    <s_tag_label>
-                      <span>[##_tag_label_rep_##]</span>
-                      <div class="clear"></div>
-                    </s_tag_label>
-                  </div>
-
-                  <div class="article">
-                    <!-- 데이블 div -->
-                    <div itemprop="articleBody">
-                      [##_article_rep_desc_##]
-                    </div>
-                  </div>
-
-                  <s_ad_div>
-                    <div class="admin">
-                      <a href="[##_s_ad_m_link_##]">Modify</a>
-                      <span class="line">|</span>
-                      <a href="#" onclick="[##_s_ad_d_onclick_##]">Delete</a>
-                    </div>
-                  </s_ad_div>
-
-                  <s_rp>
-                    <div id="communicate">
-                      <s_rp_input_form>
-                        <div class="communicateWrite">
-                          <s_rp_member>
-                            <s_rp_guest>
-                              <div class="name guest">
-                                <label for="name">NAME</label>
-                                <input id="name" type="text" name="[##_rp_input_name_##]" value="[##_guest_name_##]" />
-                              </div>
-                              <div class="password guest">
-                                <label for="password">PASSWORD</label>
-                                <input id="password" type="password" maxlength="8" name="[##_rp_input_password_##]" value="[##_rp_admin_check_##]" />
-                              </div>
-                              <div class="homepage guest">
-                                <label for="homepage">HOMEPAGE</label>
-                                <input id="homepage" type="text" name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]" />
-                              </div>
-                            </s_rp_guest>
-                          </s_rp_member>
-                          <div class="textarea"><textarea name="[##_rp_input_comment_##]" rows="10" cols="50"></textarea></div>
-                          <div class="submit"><input type="submit" value="WRITE" onclick="[##_rp_onclick_submit_##]" /></div>
-                          <div class="secret">
-                            <label for="secret">SECRET</label>
-                            <input id="secret" type="checkbox" name="[##_rp_input_is_secret_##]" />
-                          </div>
-                          <div class="clear"></div>
-                        </div>
-                      </s_rp_input_form>
-
-                      <s_rp_container>
-                        <div class="communicateList">
-                          <ol>
-                            <s_rp_rep>
-                              <li id='[##_rp_rep_id_##]'>
-                                <div class="[##_rp_rep_class_##]">
-                                  <div class="info">
-                                    <span class="name">[##_rp_rep_name_##]</span>
-                                    <span class="date">[##_rp_rep_date_##]</span>
-                                  </div>
-                                  <div class="clear"></div>
-                                  <p>[##_rp_rep_desc_##]</p>
-                                  <div class="control">
-                                    <a href="[##_rp_rep_link_##]" class="url">#</a>
-                                    <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
-                                    <a href="#" onclick="[##_rp_rep_onclick_reply_##]" class="write">Reply</a>
-                                    <div class="clear"></div>
-                                  </div>
-                                </div>
-                                <s_rp2_container>
-                                  <ul>
-                                    <s_rp2_rep>
-                                      <li id='[##_rp_rep_id_##]'>
-                                        <div class="[##_rp_rep_class_##]">
-                                          <div class="info">
-                                            <span class="name">[##_rp_rep_name_##]</span>
-                                            <span class="date">[##_rp_rep_date_##]</span>
-                                          </div>
-                                          <div class="clear"></div>
-                                          <p>[##_rp_rep_desc_##]</p>
-                                          <div class="control">
-                                            <a href="[##_rp_rep_link_##]" class="url">#</a>
-                                            <a href="#" onclick="[##_rp_rep_onclick_delete_##]" class="modify">Delete</a>
-                                          </div>
-                                        </div>
-                                      </li>
-                                    </s_rp2_rep>
-                                  </ul>
-                                </s_rp2_container>
-                              </li>
-                            </s_rp_rep>
-                          </ol>
-                        </div>
-                      </s_rp_container>
-                    </div>
-                  </s_rp>
-                </div>
-              </s_article_rep>
-            </div>
-            <s_guest>
-              <div id="head">
-                <h2>Thanks To Donate For Crocus!</h2>
-              </div>
-
-              <div id="body" class="entry">
-                <div id="communicate">
-                  <s_guest_input_form>
-                    <div class="communicateWrite">
-                      <s_guest_member>
-                        <s_guest_form>
-                          <div class="name guest no-margin">
-                            <label for="name">Donator Name</label>
-                            <input id="name" type="text" name="[##_guest_input_name_##]" value="[##_guest_name_##]" />
-                          </div>
-                          <div class="password guest">
-                            <label for="password">PASSWORD</label>
-                            <input id="password" type="password" maxlength="8" name="[##_guest_input_password_##]" value="[##_guest_password_##]" />
-                          </div>
-                          <!-- <div class="homepage guest">
-                                <label for="homepage">HOMEPAGE</label>
-                                <input id="homepage" type="text" name="[##_guest_input_homepage_##]" value="[##_guest_homepage_##]" />
-                              </div> -->
-                        </s_guest_form>
-                      </s_guest_member>
-                      <div class="textarea"><textarea name="[##_guest_textarea_body_##]" cols="50" rows="6" placeholder="성명(닉네임) &#10;블로그 이외의 정리해둔 공부 자료를 원하신다면 이메일 혹은 카카오톡 id를 적어주세요.(비공개로 적어주세요)"></textarea></div>
-                      <div class="submit"><input type="submit" value="WRITE" onclick="[##_guest_onclick_submit_##]"/></div>
-                      <div class="secret">
-                        <label for="guestsecret">SECRET</label>
-                        <input id="guestsecret" type="checkbox" name="secret" />
-                      </div>
-                      <div class="clear"></div>
-                    </div>
-                  </s_guest_input_form>
-
-                  <s_guest_container>
-                    <div class="communicateList">
-                      <ol>
-                        <s_guest_rep>
-                          <li id='[##_guest_rep_id_##]'>
-                            <div class="[##_guest_rep_class_##]">
-                              <div class="info">
-                                <span class="name">[##_guest_rep_name_##]</span>
-                                <span class="date">[##_guest_rep_date_##]</span>
-                              </div>
-                              <div class="clear"></div>
-                              <p>[##_guest_rep_desc_##]</p>
-                              <div class="control">
-                                <a href="#[##_guest_rep_id_##]" class="url">#</a>
-                                <a href="#" onclick="[##_guest_rep_onclick_delete_##]">Delete</a>
-                                <a href="#" onclick="[##_guest_rep_onclick_reply_##]">Reply</a>
-                              </div>
-                            </div>
-                            <s_guest_reply_container>
-                              <ul>
-                                <s_guest_reply_rep>
-                                  <li id='[##_guest_rep_id_##]'>
-                                    <div class="[##_guest_rep_class_##]">
-                                      <div class="info">
-                                        <span class="name">[##_guest_rep_name_##]</span>
-                                        <span class="date">[##_guest_rep_date_##]</span>
-                                      </div>
-                                      <div class="clear"></div>
-                                      <p>[##_guest_rep_desc_##]</p>
-                                      <div class="control">
-                                        <a href="#[##_guest_rep_id_##]" class="url">#</a>
-                                        <a href="#" onclick="[##_guest_rep_onclick_delete_##]">Delete</a>
-                                      </div>
-                                    </div>
-                                  </li>
-                                </s_guest_reply_rep>
-                              </ul>
-                            </s_guest_reply_container>
-                          </li>
-                        </s_guest_rep>
-                      </ol>
-                    </div>
-                  </s_guest_container>
-                </div>
-              </div>
-            </s_guest>
-
-            <div id="paging">
-              <s_paging>
-                <a [##_prev_page_##] class="prev [##_no_more_prev_##]">PREV</a>
-                <s_paging_rep><a class="numbox" [##_paging_rep_link_##]>[##_paging_rep_link_num_##]</a></s_paging_rep>
-                <a [##_next_page_##] class="next [##_no_more_next_##]">NEXT</a>
-              </s_paging>
-            </div>
-
-            <div id="foot">
-              <!--Powered by <a href="https://www.tistory.com/" target="_blank">Tistory</a>,-->
-              <div>
-                <a href="https://github.com/kkw564" target="_blank">
-                  <img class="crocus-social" src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/github.png">
-                </a>
-              </div>
-              <div class="crocus-div-box">
-                <a href="http://mail2.naver.com/write_popup3.nhn?cmd=compose&to=kkw564@naver.com&subject=&attach[]=" target="_blank">
-                  <img class="crocus-social" src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/email.png">
-                </a>
-                <a href="http://mail2.naver.com/write_popup3.nhn?cmd=compose&to=kkw564@naver.com&subject=&attach[]=" target="_blank">
-                  kkw564@naver.com
-                </a>
-              </div>
-            </div>
-          </div> <!-- content-inner close -->
-        </div>
-
-
-      </div> <!-- content close -->
-    </div> <!-- wrap close -->
-  </s_t3>
-</div>
+							<div id="foot">
+								<!--Powered by <a href="https://www.tistory.com/" target="_blank">Tistory</a>,-->
+								<div>
+									<a href="https://github.com/kkw564" target="_blank">
+										<img class="crocus-social" src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/github.png">
+									</a>
+								</div>
+								<div class="crocus-div-box">
+									<a href="http://mail2.naver.com/write_popup3.nhn?cmd=compose&to=kkw564@naver.com&subject=&attach[]=" target="_blank">
+										<img class="crocus-social" src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/email.png">
+									</a>
+									<a href="http://mail2.naver.com/write_popup3.nhn?cmd=compose&to=kkw564@naver.com&subject=&attach[]=" target="_blank">
+										kkw564@naver.com
+									</a>
+								</div>
+							</div>
+						</div> <!-- content-inner close -->
+					</div>
 
 
-<div id="sidebar-toggle"><i class="icon-reorder"></i></div>
+				</div> <!-- content close -->
+			</div> <!-- wrap close -->
+	</s_t3>
+	</div>
 
+
+	<div id="sidebar-toggle"><i class="icon-reorder"></i></div>
+
+<!-- Vanta js for background -->
 <script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/three_min.js"></script>
 <script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/three_r92_min.js"></script>
 <script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/vanta_fog_min.js"></script>
 <script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/vanta_clouds_min.js"></script>
-
+	
 <script>
-    window.onload = function () {
-        /**
-         VANTA.FOG({
+window.onload = function () {
+	
+	VANTA.FOG({
 		el: "#background-fog",
 		highlightColor: 0xadbbff,
 		midtoneColor: 0xfcc4c4,
 		lowlightColor: 0xe5dfff,
 		baseColor: 0xfff5f5,
-		blurFactor: 0.55
+		blurFactor: 0.55,
+		speed: 1.60
 	})
-         **/
-        VANTA.CLOUDS({
-            el: "#background-fog"
-        })
-    }
+	/**
+			VANTA.CLOUDS({
+		el: "#background-fog"
+	})
+	**/
+}
 </script>
-<script>
-    //디데이 종료 일자 설정
-    var firstDay = new Date("March 5, 2018 00:00:00").getTime();
-    //1초마다 갱신되도록 함수 생성,실행
-    var x = setInterval(function() {
-        // 오늘 날짜 등록
-        var now = new Date().getTime();
-        // 종료일자에서 현재일자를 뺀 시간
-        var distance = now - firstDay;
-        // 각 변수에 일, 시, 분, 초를 등록
-        var d = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
-        var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var s = Math.floor((distance % (1000 * 60)) / 1000);
-        //id가 d-day인 HTML코드에 내용 삽입
-        if(document.getElementById("geeye-text") !== null) {
-            document.getElementById("geeye-text").innerHTML = "공주님을 사랑한 시간";
-            document.getElementById("geeye-day").innerHTML = d +"days " + h + ":" + m + ":" + s;
-        }
-    }, 1000);
+	<script>
+		//디데이 종료 일자 설정
+		var firstDay = new Date("March 5, 2018 00:00:00").getTime();
+		//1초마다 갱신되도록 함수 생성,실행
+		var x = setInterval(function() {
+			// 오늘 날짜 등록
+			var now = new Date().getTime();
+			// 종료일자에서 현재일자를 뺀 시간
+			var distance = now - firstDay;
+			// 각 변수에 일, 시, 분, 초를 등록
+			var d = Math.floor(distance / (1000 * 60 * 60 * 24)) + 1;
+			var h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var s = Math.floor((distance % (1000 * 60)) / 1000);
+			//id가 d-day인 HTML코드에 내용 삽입
+			if(document.getElementById("geeye-text") !== null) {		
+				document.getElementById("geeye-text").innerHTML = "공주님을 사랑한 시간";
+				document.getElementById("geeye-day").innerHTML = d +"days " + h + ":" + m + ":" + s;	
+			}
+		}, 1000);
 
-    $(function() {
-        var count = $('#ticker li').length;
-        var height = $('#ticker li').height();
+		$(function() {
+			var count = $('#ticker li').length;
+			var height = $('#ticker li').height();
 
-        function step(index) {
-            $('#ticker ol').delay(2000).animate({
-                top: -height * index,
-            }, 500, function() {
-                step((index + 1) % count);
-            });
-        }
+			function step(index) {
+				$('#ticker ol').delay(2000).animate({
+					top: -height * index,
+				}, 500, function() {
+					step((index + 1) % count);
+				});
+			}
 
-        step(1);
-    });
-    function consoleText(words, id, colors) {
-        if (colors === undefined) colors = ['#fff']
-        var visible = true
-        var con = document.getElementById('console')
-        var letterCount = 1
-        var x = 1
-        var waiting = false
-        var target = document.getElementById(id)
-        target.setAttribute('style', 'color:' + colors[0])
-        window.setInterval(function () {
-            if (letterCount === 0 && waiting === false) {
-                waiting = true
-                target.innerHTML = words[0].substring(0, letterCount)
-                window.setTimeout(function () {
-                    var usedColor = colors.shift()
-                    colors.push(usedColor)
-                    var usedWord = words.shift()
-                    words.push(usedWord)
-                    x = 1
-                    target.setAttribute('style', 'color:' + colors[0])
-                    letterCount += x
-                    waiting = false
-                }, 1000)
-            } else if (letterCount === words[0].length + 1 && waiting === false) {
-                waiting = true
-                window.setTimeout(function () {
-                    x = -1
-                    letterCount += x
-                    waiting = false
-                }, 1000)
-            } else if (waiting === false) {
-                target.innerHTML = words[0].substring(0, letterCount)
-                letterCount += x
-            }
-        }, 120)
-        window.setInterval(function () {
-            if (visible === true) {
-                con.className = 'console-underscore hidden'
-                visible = false
-            } else {
-                con.className = 'console-underscore'
+			step(1);
+		});
+		function consoleText(words, id, colors) {
+			if (colors === undefined) colors = ['#fff']
+			var visible = true
+			var con = document.getElementById('console')
+			var letterCount = 1
+			var x = 1
+			var waiting = false
+			var target = document.getElementById(id)
+			target.setAttribute('style', 'color:' + colors[0])
+			window.setInterval(function () {
+				if (letterCount === 0 && waiting === false) {
+					waiting = true
+					target.innerHTML = words[0].substring(0, letterCount)
+					window.setTimeout(function () {
+						var usedColor = colors.shift()
+						colors.push(usedColor)
+						var usedWord = words.shift()
+						words.push(usedWord)
+						x = 1
+						target.setAttribute('style', 'color:' + colors[0])
+						letterCount += x
+						waiting = false
+					}, 1000)
+				} else if (letterCount === words[0].length + 1 && waiting === false) {
+					waiting = true
+					window.setTimeout(function () {
+						x = -1
+						letterCount += x
+						waiting = false
+					}, 1000)
+				} else if (waiting === false) {
+					target.innerHTML = words[0].substring(0, letterCount)
+					letterCount += x
+				}
+			}, 120)
+			window.setInterval(function () {
+				if (visible === true) {
+					con.className = 'console-underscore hidden'
+					visible = false
+				} else {
+					con.className = 'console-underscore'
 
-                visible = true
-            }
-        }, 400)
-    }
-    var vm = new Vue({
-        el: '#mainPage',
-        data: {
-            crocus: 'https://www.crocus.co.kr/',
-            isMain: true,
-            bgImg: 0,
-            keywordRankList:["피터슨 알고리즘","R언어 정규분포","fork 소켓","http 작동원리"],
-            keywordInnerRankList:["lca 알고리즘","kmp","최소 버텍스 커버","bfs","최소 컷","dfs","블록체인 이란","LCA","펜윅 트리","파이썬 scanf"],
-            keywordOuterRankList:["블록체인","crocus","확장된 유클리드 알고리즘","파이썬 scanf","유클리드 알고리즘","modular arithmetic","mips code","데이터베이스 외래키","kkw564","c  영화풀이 소스코드 예제"],
-            currentText:'',
-            searchText:'',
-            keyword: '',
-            keywordName: '',
-            geeye: false,
-        },
-        created: function () {
-        },
-        beforeMount: function () {
-            // el때문에 스타일이 뭉개지는 현상때문에 el을 메인이 아닐때는 삭제
-            if (window.location.href !== this.crocus) {
-                this.$el = ''
-            }
-        },
-        mounted: function () {
-            if (window.location.href !== this.crocus) {
-                this.isMain = false
-                this.geeye = false
-            }
-            this.bgImg = Math.floor(Math.random() * 10);
-            if (this.bgImg % 4 == 0) {
-                particlesJS.load('particles-js', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
-            }
-            else if(this.bgImg % 4 === 1){
-                particlesJS.load('particles-js2', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
-            }
+					visible = true
+				}
+			}, 400)
+		}
+		var vm = new Vue({
+			el: '#mainPage',
+			data: {
+				crocus: 'https://www.crocus.co.kr/',
+				isMain: true,
+				keywordRankList:["피터슨 알고리즘","R언어 정규분포","fork 소켓","http 작동원리"],
+				keywordInnerRankList:["lca 알고리즘","kmp","최소 버텍스 커버","bfs","최소 컷","dfs","블록체인 이란","LCA","펜윅 트리","파이썬 scanf"],
+				keywordOuterRankList:["블록체인","crocus","확장된 유클리드 알고리즘","파이썬 scanf","유클리드 알고리즘","modular arithmetic","mips code","데이터베이스 외래키","kkw564","c  영화풀이 소스코드 예제"],
+				currentText:'',
+				searchText:'',
+				keyword: '',
+				keywordName: '',
+				geeye: false,
+			},
+			created: function () {
+			},
+			beforeMount: function () {
+				// el때문에 스타일이 뭉개지는 현상때문에 el을 메인이 아닐때는 삭제
+				if (window.location.href !== this.crocus) {
+					this.$el = ''
+				}
+			},
+			mounted: function () {
+				if (window.location.href !== this.crocus) {
+					this.isMain = false
+					this.geeye = false
+				}
+				consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])
+			
+				this.keyword = Math.floor(Math.random() * 3);
+				if(this.keyword == 0) {
+					this.keywordName = "유입 키워드 순위"
+				}
+				else if(this.keyword == 1) {
+					this.keywordName = "내부 검색 키워드"
+				}
+				else if(this.keyword == 2) {
+					this.keywordName = "외부 검색 키워드"
+				}
+			},
 
-            else if(this.bgImg % 4 === 2){
-                particlesJS.load('particles-js3', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
-            }
-
-            else if(this.bgImg % 4 === 3){
-                particlesJS.load('particles-js4', 'https://tistory1.daumcdn.net/tistory/1636210/skin/images/particlesjs-config.json', function () { })
-            }
-            consoleText(['Think Creatively', 'Solve Flexibly', 'Advance Yourself', 'Have a Dream', 'With Crocus'], 'text', ['white'])
-
-            this.keyword = Math.floor(Math.random() * 3);
-            if(this.keyword == 0) {
-                this.keywordName = "유입 키워드 순위"
-            }
-            else if(this.keyword == 1) {
-                this.keywordName = "내부 검색 키워드"
-            }
-            else if(this.keyword == 2) {
-                this.keywordName = "외부 검색 키워드"
-            }
-        },
-
-        methods: {
-            goBlog: function () {
-                window.location.href = 'https://www.crocus.co.kr/341'
-            },
-            goSearch: function () {
-                window.location.href = this.searchText
-            }
-        },
-
-        watch:{
-            currentText: function () {
-                if(this.currentText.toLowerCase() === "geeye"){
-                    this.geeye = true
-                }
-                this.searchText = "https://www.crocus.co.kr/search/" + this.currentText
-            }
-        }
-    });
-</script>
-
-<script src="./images/jquery.mCustomScrollbar.concat.min.js"></script>
-
-<script src="./images/ygal-edit.js"></script>
-<script>
-    $(document).ready(function () {
-        if ($('body').width() > "960") {
-            $("#sidebar").mCustomScrollbar({
-                theme: "dark-thin",
-                autoHideScrollbar: "true"
-            });
-        };
-    });
-</script>
+			methods: {
+				goBlog: function () {
+					window.location.href = 'https://www.crocus.co.kr/341'
+				},
+				goSearch: function () {
+					window.location.href = this.searchText
+				}
+			},
+			
+			watch:{
+				currentText: function () {
+					if(this.currentText.toLowerCase() === "geeye"){
+						this.geeye = true
+					}
+					this.searchText = "https://www.crocus.co.kr/search/" + this.currentText
+				}
+			}
+		});
+	</script>
+	
+	<script src="./images/jquery.mCustomScrollbar.concat.min.js"></script>
+	
+	<script src="./images/ygal-edit.js"></script>
+	<script>	
+		$(document).ready(function () {	
+			if ($('body').width() > "960") {	
+				$("#sidebar").mCustomScrollbar({	
+					theme: "dark-thin",	
+					autoHideScrollbar: "true"	
+				});	
+			};	
+		});	
+	</script>
 
 </body>
 

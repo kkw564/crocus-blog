@@ -40,22 +40,6 @@
     }
   </style>
   <!-- highlight.js resize tab size -->
-  <!-- main background style -->
-  <link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/1636210/skin/images/main1_styles.min.css">
-  <style>
-    .canvas-container > canvas {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
-    }
-    .fill-width {
-      z-index: 0;
-    }
-  </style>
-  <!-- main background style end -->
   <!-- Fix for bug in skin -->
   <script>
       if (window.location.href.includes(".com/search/") || window.location.href.includes(".co.kr/search/")) {
@@ -1128,70 +1112,86 @@
     });
 </script>
 
-<script src="https://dailycssdesign.com/dist/threejs/three-92.min.js?v=2" charset="utf-8"></script>
+
+<!-- Main background css and javascript -->
+<link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/1636210/skin/images/main1_styles.min.css">
+<style>
+  .canvas-container > canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+  }
+  .fill-width {
+    z-index: 0;
+  }
+</style>
+<script src="https://tistory2.daumcdn.net/tistory/1636210/skin/images/main_three-92.min.js" charset="utf-8"></script>
 
 <script type="x-shader/x-vertex" id="vertexShaderCenterPiece">
-varying vec2 vUv;
+	varying vec2 vUv;
 
-void main() {
-    vUv = uv;
-    vec3 pos = position;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-}
-</script>
+	void main() {
+			vUv = uv;
+			vec3 pos = position;
+			gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+	}
+	</script>
 <script type="x-shader/x-fragment" id="fragmentShaderCenterPiece">
-vec3 rgb(float r, float g, float b) {
-    return vec3(r / 255., g / 255., b / 255.);
-}
+	vec3 rgb(float r, float g, float b) {
+			return vec3(r / 255., g / 255., b / 255.);
+	}
 
-vec3 rgb(float c) {
-    return vec3(c / 255., c / 255., c / 255.);
-}
-float lighten(float base, float blend) {
-	return max(blend,base);
-}
+	vec3 rgb(float c) {
+			return vec3(c / 255., c / 255., c / 255.);
+	}
+	float lighten(float base, float blend) {
+		return max(blend,base);
+	}
 
-vec3 lighten(vec3 base, vec3 blend) {
-	return vec3(lighten(base.r,blend.r),lighten(base.g,blend.g),lighten(base.b,blend.b));
-}
+	vec3 lighten(vec3 base, vec3 blend) {
+		return vec3(lighten(base.r,blend.r),lighten(base.g,blend.g),lighten(base.b,blend.b));
+	}
 
-vec3 lighten(vec3 base, vec3 blend, float opacity) {
-	return (lighten(base, blend) * opacity + base * (1.0 - opacity));
-}
+	vec3 lighten(vec3 base, vec3 blend, float opacity) {
+		return (lighten(base, blend) * opacity + base * (1.0 - opacity));
+	}
 
-varying vec2 vUv;
-uniform float u_time;
-uniform float u_timeOffset;
-uniform vec3 u_color1;
-uniform vec3 u_color2;
-uniform vec2 u_mousePosition;
+	varying vec2 vUv;
+	uniform float u_time;
+	uniform float u_timeOffset;
+	uniform vec3 u_color1;
+	uniform vec3 u_color2;
+	uniform vec2 u_mousePosition;
 
-void main() {
-    vec3 c1 = rgb(u_color1.r, u_color1.g, u_color1.b);
-    vec3 c2 = rgb(u_color2.r, u_color2.g, u_color2.b);
-    vec3 color = c1;
+	void main() {
+			vec3 c1 = rgb(u_color1.r, u_color1.g, u_color1.b);
+			vec3 c2 = rgb(u_color2.r, u_color2.g, u_color2.b);
+			vec3 color = c1;
 
-    vec2 pos = vec2(0.5) - vUv;
-    float r = length(pos) * 5.0;
-    float a = atan(pos.y, pos.x);
-    float count = 2. + u_mousePosition.x * 3.;
-    float shape =
-        abs(cos(a * (count * 2.) + (u_time  * 0.8 + u_timeOffset))) *
-        sin(a * count - (u_time  * 0.8 + u_timeOffset))
-    ;
+			vec2 pos = vec2(0.5) - vUv;
+			float r = length(pos) * 5.0;
+			float a = atan(pos.y, pos.x);
+			float count = 2. + u_mousePosition.x * 3.;
+			float shape =
+					abs(cos(a * (count * 2.) + (u_time  * 0.8 + u_timeOffset))) *
+					sin(a * count - (u_time  * 0.8 + u_timeOffset))
+			;
 
-    color = mix(
-        color,
-        c2,
-        r
-    );
+			color = mix(
+					color,
+					c2,
+					r
+			);
 
-    color *= 1. + (1. - u_mousePosition.y) * 0.5;
+			color *= 1. + (1. - u_mousePosition.y) * 0.5;
 
-    float alpha = (1. - smoothstep(shape, shape + 0.8, r)) + (1. - smoothstep(shape, shape + 1.5, r)) * 0.2;
-    gl_FragColor = vec4(color, alpha);
-}
-</script>
+			float alpha = (1. - smoothstep(shape, shape + 0.8, r)) + (1. - smoothstep(shape, shape + 1.5, r)) * 0.2;
+			gl_FragColor = vec4(color, alpha);
+	}
+	</script>
 
 <script>
     var createHeroInteractive = function($container) {
@@ -1353,6 +1353,7 @@ void main() {
     };
     createHeroInteractive(document.getElementById('container'));
 </script>
+<!-- End of Main background css and javascript -->
 </body>
 
 </html>

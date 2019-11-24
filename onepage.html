@@ -211,12 +211,6 @@
     margin-top: 3vh;
   }
 
-  .fit-fog {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
   .console-container {
     font-family: 'Courgette', cursive;
     line-height: 150%;
@@ -472,7 +466,6 @@
       <div id="geeye-text"></div>
       <div id="geeye-day"></div>
     </div>
-    <!--<div v-else id="background-fog" class="fit-fog">-->
     <div v-else>
       <div id="container" class="fill-width"></div>
       <div class='console-container'>
@@ -922,39 +915,7 @@
   </s_t3>
 </div>
 
-
 <div id="sidebar-toggle"><i class="icon-reorder"></i></div>
-
-<!-- Vanta js for background -->
-<script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/three_min.js" charset="euc-kr"></script>
-<script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/three_r92_min.js" charset="euc-kr"></script>
-<script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/vanta_fog_min.js" charset="euc-kr"></script>
-<script src="https://tistory4.daumcdn.net/tistory/1636210/skin/images/vanta_clouds_min.js" charset="euc-kr"></script>
-
-<script>
-
-    /**
-     $(document).ready(function () {
-			VANTA.CLOUDS({
-		el: "#background-fog"
-	})
-	});
-     **/
-
-    window.onload = function () {
-
-        VANTA.FOG({
-            el: "#background-fog",
-            highlightColor: 0xadbbff,
-            midtoneColor: 0xfcc4c4,
-            lowlightColor: 0xe5dfff,
-            baseColor: 0xfff5f5,
-            blurFactor: 0.55,
-            speed: 1.60
-        })
-    }
-
-</script>
 
 <script>
     //디데이 종료 일자 설정

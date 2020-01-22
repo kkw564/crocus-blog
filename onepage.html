@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko" class="">
 
 <head>		<!--[if lte IE 11]>
@@ -160,7 +160,6 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/vuex"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 
   <!-- stats.js lib -->
@@ -435,6 +434,11 @@
     }
 
   }
+	
+	body .list ul li a img {
+		width: auto !important;
+		height: auto !important;
+	}
 </style>
 
 <script>
@@ -1075,7 +1079,7 @@
 
 
 <!-- Main background css and javascript -->
-<link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/1636210/skin/images/main1_styles.min.css">
+<link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/1636210/skin/images/main_styles.min.css">
 <style>
   .canvas-container > canvas {
     position: absolute;
@@ -1192,9 +1196,11 @@
         });
 
         function updateSize() {
+					if($container != null){
             w = $container.offsetWidth;
             h = $container.offsetHeight;
             isMobile = w < 800;
+					}
         }
 
         var mouseInertiaPosition = {
@@ -1246,8 +1252,11 @@
             renderer.setSize(w, h);
             renderer.setClearColor(new THREE.Color('rgb(25,25,25)'));
 
-            $container.appendChild(renderer.domElement);
+					if($container != null){
+						$container.appendChild(renderer.domElement);
 
+					}
+            
             window.addEventListener('resize', handleResize);
             if ('ontouchstart' in window) {
                 document.body.addEventListener('touchmove', handleTouchMove);
@@ -1318,3 +1327,4 @@
 </body>
 
 </html>
+

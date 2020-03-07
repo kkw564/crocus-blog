@@ -160,7 +160,6 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-  <script src="https://unpkg.com/vuex"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
 
   <!-- stats.js lib -->
@@ -435,6 +434,11 @@
     }
 
   }
+	
+	body .list ul li a img {
+		width: auto !important;
+		height: auto !important;
+	}
 </style>
 
 <script>
@@ -462,6 +466,7 @@
 <div id="mainPage">
   <template class="main-on" v-if="isMain">
     <div v-if="geeye">
+      <div id="geeye-tmp"></div>
       <div id="geeye-img"></div>
       <div id="geeye-text"></div>
       <div id="geeye-day"></div>
@@ -1075,7 +1080,7 @@
 
 
 <!-- Main background css and javascript -->
-<link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/1636210/skin/images/main1_styles.min.css">
+<link rel="stylesheet" href="https://tistory4.daumcdn.net/tistory/1636210/skin/images/main_styles.min.css">
 <style>
   .canvas-container > canvas {
     position: absolute;
@@ -1192,9 +1197,11 @@
         });
 
         function updateSize() {
+					if($container != null){
             w = $container.offsetWidth;
             h = $container.offsetHeight;
             isMobile = w < 800;
+					}
         }
 
         var mouseInertiaPosition = {
@@ -1246,8 +1253,11 @@
             renderer.setSize(w, h);
             renderer.setClearColor(new THREE.Color('rgb(25,25,25)'));
 
-            $container.appendChild(renderer.domElement);
+					if($container != null){
+						$container.appendChild(renderer.domElement);
 
+					}
+            
             window.addEventListener('resize', handleResize);
             if ('ontouchstart' in window) {
                 document.body.addEventListener('touchmove', handleTouchMove);
@@ -1312,8 +1322,28 @@
             requestAnimationFrame(render);
         }
     };
-    createHeroInteractive(document.getElementById('container'));
+
+	  createHeroInteractive(document.getElementById('container'));
 </script>
+
+<!-- See hidden script or not until 1min -->
+<script>
+	var maxTime = 60000, startTime = Date.now();
+	var interval = setInterval(function () {
+		if ($('#container').is(':visible')) {
+			// visible, do something
+			if (Date.now() - startTime > maxTime) {
+				clearInterval(interval);
+			}
+		} else {
+			if(document.getElementById('container') == null) {
+				document.getElementById('geeye-tmp').style.display = "none";
+			}
+			clearInterval(interval);
+		}
+	}, 100);
+</script>
+	
 <!-- End of Main background css and javascript -->
 </body>
 
